@@ -32,7 +32,7 @@ echo "2018-07-30" > aurora/releasedate;
 echo "2018-04-05" > xz2c/releasedate;
 
 echo "Xiaomi POCO F3 / Redmi K40 / Mi 11X" > alioth/friendlyName;
-echo 8 > alioth/status-19.1;
+echo 7 > alioth/status-19.1;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > alioth/bootloader_information;
 echo "2021-03-04" > alioth/releasedate;
 
@@ -53,7 +53,8 @@ echo -e "Fastboot\nYes, Untested\n2.0\nYes" > aura/bootloader_information;
 
 echo "OnePlus Nord" > avicii/friendlyName;
 echo 7 > avicii/status-17.1;
-echo -e "Fastboot\nReported Working\n2.0" > avicii/bootloader_information;
+echo 3 > avicii/status-20.0;
+echo -e "Fastboot\nNo*\n2.0\n20.0 only" > avicii/bootloader_information;
 echo "2020-08-04" > avicii/releasedate;
 
 echo "ZTE Axon 7" > axon7/friendlyName;
@@ -246,6 +247,7 @@ echo "2015-12-01" > fp2/releasedate; #?
 
 echo "Fairphone 3" > fp3/friendlyName;
 echo 7 > fp3/status-19.1;
+echo 10 > fp3/status-20.0;
 echo -e "Fastboot\nReported Working\n2.0\nYes" > fp3/bootloader_information;
 echo "2019-09-03" > fp3/releasedate;
 

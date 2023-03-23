@@ -305,7 +305,6 @@ function error() {
 ?>
 					<div class="section" id="devices">
 						<h2 class="centero">20.0 / 13.0 / T</h2>
-						<p class="centero"><mark>Note: the update check counter cannot currently discern between branches</mark></p>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("20.0"); ?>
 						</div>
