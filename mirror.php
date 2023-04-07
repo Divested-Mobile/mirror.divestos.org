@@ -30,6 +30,7 @@ if(!isLikelyBot()) {
 	if(checkString($base, 2, 24, 1, 0, 0) && checkString($file, 3, 128, 3, 2, 0)) {
 		header('Content-Disposition: attachment; filename="' . explode("/", $file)[1] . '"');
 		header('Location: ' . getMirror() . $base . "/" . $file);
+		//print("Picking: " . getMirror());
 	} else {
 		print("Invalid request");
 		http_response_code(400);
@@ -40,10 +41,54 @@ if(!isLikelyBot()) {
 }
 
 function getMirror() {
-	if($GLOBALS['numMirrors'] == 0) {
-		return getBaseUrl(true, $GLOBALS['SBNR_DOMAIN_ALLOWLIST']) . "/builds/";
+	if(in_array($_SERVER['SERVER_NAME'], $GLOBALS['SBNR_DOMAINS_ONIONS_ONLY'])) {
+		return $GLOBALS['SBNR_MIRRORS_ONIONS'][array_rand($GLOBALS['SBNR_MIRRORS_ONIONS'])];
+	} else {
+		if(false /*isset($_SERVER['MM_LATITUDE']) && isset($_SERVER['MM_LONGITUDE'])*/) {
+			$closestRecordedMirror = -1;
+			$closestRecordedMirrorDistance = 6371000;
+			//print("Identifed location is " . $_SERVER['MM_LATITUDE'] . ", " . $_SERVER['MM_LONGITUDE'] . "<br>" . PHP_EOL);
+			for($inc = 0; $inc < sizeof($GLOBALS['SBNR_MIRRORS_CLEARNET']); $inc++) {
+				$measuredDistance = vincentyGreatCircleDistance($_SERVER['MM_LATITUDE'], $_SERVER['MM_LONGITUDE'],
+					$GLOBALS['SBNR_MIRRORS_CLEARNET_LATITUDES'][$inc], $GLOBALS['SBNR_MIRRORS_CLEARNET_LONGITUDES'][$inc]);
+				//print($measuredDistance . "m to " . $GLOBALS['SBNR_MIRRORS_CLEARNET'][$inc] . "<br>" . PHP_EOL);
+				if($measuredDistance < $closestRecordedMirrorDistance) {
+					$closestRecordedMirror = $inc;
+					$closestRecordedMirrorDistance = $measuredDistance;
+				}
+			}
+			if($closestRecordedMirror !== -1) {
+				return $GLOBALS['SBNR_MIRRORS_CLEARNET'][$closestRecordedMirror];
+			}
+		}
+		return $GLOBALS['SBNR_MIRRORS_CLEARNET'][array_rand($GLOBALS['SBNR_MIRRORS_CLEARNET'])];
 	}
-	return "https://mirror" . random_int(0, $GLOBALS['numMirrors']) . "." . $_SERVER['SERVER_NAME'] . "/"; //XXX: ADD ALLOWLIST CHECK HERE TOO (prefix support to getBaseURL?)
+}
+
+/**
+ * Calculates the great-circle distance between two points, with
+ * the Vincenty formula.
+ * @param float $latitudeFrom Latitude of start point in [deg decimal]
+ * @param float $longitudeFrom Longitude of start point in [deg decimal]
+ * @param float $latitudeTo Latitude of target point in [deg decimal]
+ * @param float $longitudeTo Longitude of target point in [deg decimal]
+ * @param float $earthRadius Mean earth radius in [m]
+ * @return float Distance between points in [m] (same as earthRadius)
+ * Credit (CC BY-SA 3.0): https://stackoverflow.com/a/10054282
+ */
+function vincentyGreatCircleDistance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000) {
+	// convert from degrees to radians
+	$latFrom = deg2rad($latitudeFrom);
+	$lonFrom = deg2rad($longitudeFrom);
+	$latTo = deg2rad($latitudeTo);
+	$lonTo = deg2rad($longitudeTo);
+
+	$lonDelta = $lonTo - $lonFrom;
+	$a = pow(cos($latTo) * sin($lonDelta), 2) + pow(cos($latFrom) * sin($latTo) - sin($latFrom) * cos($latTo) * cos($lonDelta), 2);
+	$b = sin($latFrom) * sin($latTo) + cos($latFrom) * cos($latTo) * cos($lonDelta);
+
+	$angle = atan2(sqrt($a), $b);
+	return round($angle * $earthRadius);
 }
 
 ?>

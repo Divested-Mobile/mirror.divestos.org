@@ -53,7 +53,7 @@ echo -e "Fastboot\nYes, Untested\n2.0\nYes" > aura/bootloader_information;
 
 echo "OnePlus Nord" > avicii/friendlyName;
 echo 7 > avicii/status-17.1;
-echo 3 > avicii/status-20.0;
+echo 7 > avicii/status-20.0;
 echo -e "Fastboot\nNo*\n2.0\n20.0 only" > avicii/bootloader_information;
 echo "2020-08-04" > avicii/releasedate;
 
