@@ -320,7 +320,7 @@ function error() {
 							<?php getDownloads("18.1"); ?>
 						</div>
 						<hr>
-						<h2 class="centero">17.1 / 10.0 / Q</h2>
+						<h2 class="centero">17.1 / 10.0 / Q / END OF LIFE</h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("17.1"); ?>
 						</div>
