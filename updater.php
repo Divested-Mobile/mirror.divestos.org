@@ -30,7 +30,7 @@ if(!isLikelyBot()) {
 		$rootdirInc = $rootdir . "/incrementals/";
 		if(is_dir($rootdir)) {
 			$result = getCachedDeviceJson($rootdir, $rootdirInc, $base, $device, $inc);
-			$result = str_replace("invalid://invalid.invalid", getBaseURL(true, $SBNR_DOMAINS_CLEARNET_ONLY), $result);
+			$result = str_replace("invalid://invalid.invalid", "https://divestos.org", $result);
 			if(contains($result, "invalid://invalid.invalid")) {
 				print("Invalid request");
 				http_response_code(400);

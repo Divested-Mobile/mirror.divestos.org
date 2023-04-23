@@ -258,7 +258,7 @@ echo -e "Fastboot\nWill Brick\nNo" > tilapia/bootloader_information;
 
 echo "OnePlus 7 Pro" > guacamole/friendlyName;
 echo "OnePlus 7" > guacamoleb/friendlyName;
-echo 8 > guacamole/status-20.0;
+echo 7 > guacamole/status-20.0;
 echo 8 > guacamoleb/status-20.0;
 echo -e "Fastboot\nNo*\n2.0\nYes" > guacamole/bootloader_information;
 echo -e "Fastboot\nNo*\n2.0\nYes" > guacamoleb/bootloader_information;
@@ -351,7 +351,7 @@ echo "2015-04-10" > himaul/releasedate;
 echo "OnePlus 7T Pro" > hotdog/friendlyName;
 echo "OnePlus 7T" > hotdogb/friendlyName;
 echo 8 > hotdog/status-20.0;
-echo 8 > hotdogb/status-20.0;
+echo 7 > hotdogb/status-20.0;
 echo -e "Fastboot\nNo*\n2.0\nYes" > hotdog/bootloader_information;
 echo -e "Fastboot\nNo*\n2.0\nYes" > hotdogb/bootloader_information;
 echo "2019-10-17" > hotdog/releasedate;
