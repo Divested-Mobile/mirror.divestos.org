@@ -34,7 +34,7 @@ function getDownloads($version) {
 	}
 
 	$rootdir = "/builds/" . $base . "/";
-	$realRootdir = "/var/www/mirror.divested.dev/divestos.org" . $rootdir;
+	$realRootdir = "/var/www/divestos.org" . $rootdir;
 	if(!(is_dir($realRootdir))) {
 		error();
 		return;
