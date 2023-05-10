@@ -413,14 +413,20 @@ echo "Samsung Galaxy S4" > jfltexx/friendlyName;
 echo "Samsung Galaxy S4 ATT" > jflteatt/friendlyName;
 echo "Samsung Galaxy S4 SPR" > jfltespr/friendlyName;
 echo "Samsung Galaxy S4 VZW" > jfltevzw/friendlyName;
+echo "Samsung Galaxy S4 Active" > jactivelte/friendlyName;
+echo "Samsung Galaxy S4 Value Edition" > jfvelte/friendlyName;
 echo 7 > jfltexx/status-18.1;
 echo 8 > jflteatt/status-18.1;
 echo 4 > jfltespr/status-18.1;
 echo 4 > jfltevzw/status-18.1;
+echo 8 > jactivelte/status-18.1;
+echo 8 > jfvelte/status-18.1;
 echo -e "Heimdall\nNot Unlockable\nNo" > jfltexx/bootloader_information;
 echo -e "Heimdall\nNot Unlockable\nNo" > jflteatt/bootloader_information;
 echo -e "Heimdall\nNot Unlockable\nNo" > jfltespr/bootloader_information;
 echo -e "Heimdall\nNot Unlockable\nNo" > jfltevzw/bootloader_information;
+echo -e "Heimdall\nNot Unlockable\nNo" > jactivelte/bootloader_information;
+echo -e "Heimdall\nNot Unlockable\nNo" > jfvelte/bootloader_information;
 echo "2013-04-27" > jfltexx/releasedate;
 
 echo "Samsung Galaxy S5 Plus" > kccat6/friendlyName;
@@ -436,13 +442,32 @@ echo 0 > klte/status-18.1;
 echo -e "Heimdall\nNot Unlockable\nNo" > klte/bootloader_information;
 echo "2014-04-11" > klte/releasedate;
 
+echo "Samsung Galaxy Note 3 LTE" > hlte/friendlyName;
+echo 08 > hlte/status-18.1;
+echo -e "Heimdall\nNot Unlockable\nNo" > hlte/bootloader_information;
+
 echo "Xiaomi Redmi 3S/3X" > land/friendlyName;
 echo 4 > land/status-16.0;
 echo -e "Fastboot (Xiaomi)\nLikely not possible\nNo" > land/bootloader_information;
 
 echo "Xiaomi Redmi Note 7" > lavender/friendlyName;
+echo "Xiaomi Mi A2" > jasmine_sprout/friendlyName;
+echo "Xiaomi Mi 8 Lite" > platina/friendlyName;
+echo "Xiaomi Redmi Note 6 Pro" > twolip/friendlyName;
+echo "Xiaomi Mi 6X" > wayne/friendlyName;
+echo "Xiaomi Redmi Note 5 Pro" > whyred/friendlyName;
 echo 7 > lavender/status-18.1;
+echo 8 > jasmine_sprout/status-18.1;
+echo 8 > platina/status-18.1;
+echo 8 > twolip/status-18.1;
+echo 8 > wayne/status-18.1;
+echo 8 > whyred/status-18.1;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > lavender/bootloader_information;
+echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > jasmine_sprout/bootloader_information;
+echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > platina/bootloader_information;
+echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > twolip/bootloader_information;
+echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > wayne/bootloader_information;
+echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > whyred/bootloader_information;
 
 echo "Samsung Galaxy S5 LTE-A" > lentislte/friendlyName;
 echo 4 > lentislte/status-16.0;
@@ -593,6 +618,10 @@ echo -e "Heimdall\nNot Unlockable\nNo" > serrano3gxx/bootloader_information;
 echo "Galaxy S4 Mini INTL (LTE)" > serranoltexx/friendlyName;
 echo 7 > serranoltexx/status-18.1;
 echo -e "Heimdall\nNot Unlockable\nNo" > serranoltexx/bootloader_information;
+
+echo "Galaxy S4 Mini INTL (3G DS)" > serranodsdd/friendlyName;
+echo 8 > serranodsdd/status-18.1;
+echo -e "Heimdall\nNot Unlockable\nNo" > serranodsdd/bootloader_information;
 
 echo "Google Nexus 6" > shamu/friendlyName;
 echo 4 > shamu/status-15.1;
