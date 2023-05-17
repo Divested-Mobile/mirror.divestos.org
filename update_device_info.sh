@@ -256,7 +256,7 @@ echo -e "Pre-Unlocked\nUnknown\nNo" > fp2/bootloader_information;
 echo "2015-12-01" > fp2/releasedate; #?
 
 echo "Fairphone 3" > fp3/friendlyName;
-echo 10 > fp3/status-20.0;
+echo 7 > fp3/status-20.0;
 echo -e "Fastboot\nReported Working\n2.0\nYes" > fp3/bootloader_information;
 echo "2019-09-03" > fp3/releasedate;
 
@@ -301,6 +301,9 @@ echo "LG G5 US" > rs988/friendlyName;
 echo 2 > h830/status-18.1;
 echo 5 > h850/status-18.1;
 echo 2 > rs988/status-18.1;
+echo 2 > h830/status-19.1;
+echo 2 > h850/status-19.1;
+echo 2 > rs988/status-19.1;
 echo -e "Fastboot (LGE)\nNo*\nNo" > h830/bootloader_information;
 echo -e "Fastboot (LGE)\nNo*\nNo" > h850/bootloader_information;
 echo -e "Fastboot (LGE)\nNo*\nNo" > rs988/bootloader_information;
@@ -311,6 +314,8 @@ echo "LG G6 INTL" > h870/friendlyName;
 echo "LG G6 US" > us997/friendlyName;
 echo 1 > h870/status-15.1;
 echo 1 > us997/status-15.1;
+echo 2 > h870/status-19.1;
+echo 2 > us997/status-19.1;
 echo -e "Fastboot (LGE)\nNo*\nNo" > h870/bootloader_information;
 echo -e "Fastboot (LGE)\nNo*\nNo" > us997/bootloader_information;
 echo "2017-02-26" > h870/releasedate;
@@ -322,12 +327,18 @@ echo "LG V20 INTL" > h990/friendlyName;
 echo "LG V20 SPR" > ls997/friendlyName;
 echo "LG V20 US" > us996/friendlyName;
 echo "LG V20 VZW" > vs995/friendlyName;
-echo 8 > h910/status-18.1
-echo 4 > h918/status-18.1
+echo 8 > h910/status-18.1;
+echo 4 > h918/status-18.1;
 echo 8 > h990/status-18.1;
-echo 4 > ls997/status-18.1
+echo 4 > ls997/status-18.1;
 echo 8 > us996/status-18.1;
-echo 4 > vs995/status-18.1
+echo 4 > vs995/status-18.1;
+echo 2 > h910/status-19.1;
+echo 2 > h918/status-19.1;
+echo 2 > h990/status-19.1;
+echo 2 > ls997/status-19.1;
+echo 2 > us996/status-19.1;
+echo 2 > vs995/status-19.1;
 echo -e "Exploit\nNot Unlockable\nNo" > h910/bootloader_information;
 echo -e "Exploit\nNot Unlockable\nNo" > h918/bootloader_information;
 echo -e "Exploit\nNot Unlockable\nNo" > h990/bootloader_information;
