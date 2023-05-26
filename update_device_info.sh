@@ -583,7 +583,7 @@ echo 2 > pro1/status-20.0;
 echo -e "Fastboot\nYes, Untested\n2.0\nYes" > pro1/bootloader_information;
 
 echo "F(x)tec Pro¹ X" > pro1x/friendlyName;
-echo 1 > pro1x/status-20.0;
+echo 7 > pro1x/status-20.0;
 echo -e "Fastboot\nReported Working\n2.0\nYes" > pro1x/bootloader_information;
 
 echo "Google Pixel 5" > redfin/friendlyName;
