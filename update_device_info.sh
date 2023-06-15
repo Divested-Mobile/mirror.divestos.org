@@ -36,6 +36,7 @@ echo "2018-04-05" > xz2c/releasedate;
 
 echo "Xiaomi POCO F3 / Redmi K40 / Mi 11X" > alioth/friendlyName;
 echo 7 > alioth/status-19.1;
+echo 2 > alioth/statis-20.0;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > alioth/bootloader_information;
 echo "2021-03-04" > alioth/releasedate;
 
@@ -108,7 +109,7 @@ echo "2019-05-07" > bonito/releasedate;
 echo "2019-05-07" > sargo/releasedate;
 
 echo "Google Pixel 4a 5G" > bramble/friendlyName;
-echo 8 > bramble/status-20.0;
+echo 7 > bramble/status-20.0;
 echo -e "Fastboot\nYes, Untested\n2.0\nYes" > bramble/bootloader_information;
 echo "2020-08-20" > bramble/releasedate;
 
@@ -383,7 +384,7 @@ echo "2015-04-10" > himaul/releasedate;
 
 echo "OnePlus 7T Pro" > hotdog/friendlyName;
 echo "OnePlus 7T" > hotdogb/friendlyName;
-echo 8 > hotdog/status-20.0;
+echo 7 > hotdog/status-20.0;
 echo 7 > hotdogb/status-20.0;
 echo -e "Fastboot\nNo*\n2.0\nYes" > hotdog/bootloader_information;
 echo -e "Fastboot\nNo*\n2.0\nYes" > hotdogb/bootloader_information;
@@ -486,6 +487,7 @@ echo -e "Heimdall\nNot Unlockable\nNo" > lentislte/bootloader_information;
 
 echo "Xiaomi POCO F2 Pro / Redmi K30 Pro / Redmi K30 Pro Zoom Edition" > lmi/friendlyName;
 echo 7 > lmi/status-19.1;
+echo 2 > lmi/statis-20.0;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > lmi/bootloader_information;
 
 echo "HTC One" > m7/friendlyName;
