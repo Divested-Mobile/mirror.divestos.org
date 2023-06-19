@@ -304,23 +304,23 @@ function error() {
 
 ?>
 					<div class="section" id="devices">
-						<h2 class="centero">20.0 / 13.0 / T</h2>
+						<h2 class="centero">20.0 / 13.0 / Tiramisu</h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("20.0"); ?>
 						</div>
 						<hr>
-						<h2 class="centero">19.1 / 12.1 / S</h2>
+						<h2 class="centero">19.1 / 12.1 / Snow Cone v2</h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("19.1"); ?>
 						</div>
 						<hr>
-						<h2 class="centero">18.1 / 11.0 / R</h2>
+						<h2 class="centero">18.1 / 11.0 / Red Velvet Cake</h2>
 						<p class="centero"><mark class="secondary">In-Place upgrades to 18.1 on the following devices devices require a wipe due to their legacy keystore support being removed:</mark><br><mark class="secondary">bacon, clark, crackling, d852, d855, flox, fp2, m8, mako, shamu, victara</mark></p>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("18.1"); ?>
 						</div>
 						<hr>
-						<h2 class="centero">17.1 / 10.0 / Q / END OF LIFE</h2>
+						<h2 class="centero">17.1 / 10.0 / Quince Tart / END OF LIFE</h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("17.1"); ?>
 						</div>
