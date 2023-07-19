@@ -253,7 +253,7 @@ echo -e "Fastboot (Google)\nYes, Might Brick\n1.0" > flounder_lte/bootloader_inf
 
 echo "Fairphone 2" > fp2/friendlyName;
 echo 7 > fp2/status-18.1;
-echo -e "Pre-Unlocked\nUnknown\nNo" > fp2/bootloader_information;
+echo -e "Fastboot (Unlocked)\nUnknown\nNo" > fp2/bootloader_information;
 echo "2015-12-01" > fp2/releasedate; #?
 
 echo "Fairphone 3" > fp3/friendlyName;

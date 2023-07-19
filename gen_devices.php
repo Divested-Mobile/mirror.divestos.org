@@ -184,6 +184,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					$downloads .= "<li><a href=\"https://wiki.lineageos.org/devices/" . $trueName . "\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">Device Info</a></li>";
 					$downloads .= "<li style=\"color:#" . $resultStatusColor . ";\">Status: " . $resultStatusMessage . "</li>";
 					if(file_exists($realRootdir . $device . "/install.html")) {
+						//XXX: This needs to be run twice to work
 						$downloads .= "<li>Install Method: <a href=\"/builds/LineageOS/" . $device . "/install.html\" target=\"_blank\">" . $resultInstallMethod . "</a></li>";
 					} else {
 						$downloads .= "<li>Install Method: <a href=\"/pages/bootloader\" target=\"_blank\">" . $resultInstallMethod . "</a></li>";
@@ -265,7 +266,7 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 		$steps .= "<li>Follow the prerequisite steps <a href=\"/pages/bootloader#prereq\" target=\"_blank\">here</a></li>\n";
 		if($installMethod === "Fastboot (Google)") {
 			$steps .= "<li>Open the Phone app and type <code>*#*#2432546#*#*</code>, do not hit call</li>\n";
-			$steps .= "<li>Enable 'Allow OEM unlocking' under 'Developer options' in Settings if available</li>\n";
+			$steps .= "<li>Enable 'Allow OEM unlocking' under 'Developer options' in Settings. You cannot proceed if it is greyed-out/disabled.</li>\n";
 		}
 		if($installMethod === "Fastboot (Fairphone)") {
 			$steps .= "<li>Follow the vendor-specific unlock steps <a href=\"https://support.fairphone.com/hc/en-us/articles/10492476238865\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">here</a></li>\n";
@@ -296,7 +297,7 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 		} else {
 			$steps .= "<li>Reboot to the bootloader via key combination</li>\n";
 		}
-		if($installMethod === "Fastboot (Google)" || $installMethod === "Fastboot") {
+		if($installMethod === "Fastboot" || $installMethod === "Fastboot (Google)" || $installMethod === "Fastboot (Yandex)") {
 			if(file_exists($path . "/command-unlock")) {
 				$steps .= "<li><code>$ " . file_get_contents($path . "/command-unlock") . "</code></li>\n";
 			} else {
@@ -325,7 +326,7 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 		}
 		$steps .= "<li>Choose \"Apply update\", then \"Apply from ADB\", and <code>$ adb sideload " . $otaInstallFile . "</code></li>\n";
 		$steps .= "<li>While still in the recovery perform a factory reset</li>\n";
-		$steps .= "<li>Reboot into DivestOS. If it takes more than 10 minutes to boot something is wrong. Do not let it sit for more than 10 minutes!</li>\n";
+		$steps .= "<li>Reboot into DivestOS. If it takes more than 10 minutes to boot then something is wrong. Do not let it sit for more than 10 minutes!</li>\n";
 		$steps .= "<li>There are monthly updates. You MUST read the News page and backup your device before each update.</li>\n";
 		$steps .= "</ol>";
 		fwrite($fileSteps, $steps);
@@ -394,43 +395,43 @@ function error() {
 
 ?>
 					<div class="section" id="devices">
-						<h2 class="centero">20.0 / 13.0 / Tiramisu</h2>
+						<h2 class="centero" id="twenty">20.0 / 13.0 / Tiramisu<a href="#twenty">¶</a></h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("20.0"); ?>
 						</div>
 						<hr>
-						<h2 class="centero">19.1 / 12.1 / Snow Cone v2</h2>
+						<h2 class="centero" id="nineteen">19.1 / 12.1 / Snow Cone v2<a href="#nineteen">¶</a></h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("19.1"); ?>
 						</div>
 						<hr>
-						<h2 class="centero">18.1 / 11.0 / Red Velvet Cake</h2>
+						<h2 class="centero" id="eighteen">18.1 / 11.0 / Red Velvet Cake<a href="#eighteen">¶</a></h2>
 						<p class="centero"><mark class="secondary">In-Place upgrades to 18.1 on the following devices devices require a wipe due to their legacy keystore support being removed:</mark><br><mark class="secondary">bacon, clark, crackling, d852, d855, flox, fp2, m8, mako, shamu, victara</mark></p>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("18.1"); ?>
 						</div>
 						<hr>
-						<h2 class="centero">17.1 / 10.0 / Quince Tart / END OF LIFE</h2>
+						<h2 class="centero" id="seventeen">17.1 / 10.0 / Quince Tart / END OF LIFE<a href="#seventeen">¶</a></h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("17.1"); ?>
 						</div>
 						<hr>
-						<h2 class="centero">16.0 / 9.0 / Pie / END OF LIFE</h2>
+						<h2 class="centero" id="sixteen">16.0 / 9.0 / Pie / END OF LIFE<a href="#sixteen">¶</a></h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("16.0"); ?>
 						</div>
 						<hr>
-						<h2 class="centero">15.1 / 8.1.0 / Oreo / END OF LIFE</h2>
+						<h2 class="centero" id="fifteen">15.1 / 8.1.0 / Oreo / END OF LIFE<a href="#fifteen">¶</a></h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("15.1"); ?>
 						</div>
 						<hr>
-						<h2 class="centero">14.1 / 7.1.2 / Nougat / END OF LIFE</h2>
+						<h2 class="centero" id="fourteen">14.1 / 7.1.2 / Nougat / END OF LIFE<a href="#fourteen">¶</a></h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("14.1"); ?>
 						</div>
 						<hr>
-						<h2 class="centero">11.0 / 4.4.4 / KitKat / END OF LIFE / DEPRECATED</h2>
+						<h2 class="centero" id="eleven">11.0 / 4.4.4 / KitKat / END OF LIFE / DEPRECATED<a href="#eleven">¶</a></h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("11.0"); ?>
 						</div>
