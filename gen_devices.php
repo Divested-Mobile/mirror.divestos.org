@@ -77,6 +77,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 				//We have an image, get the other goodies
 				if(strlen($zip) > 30) {
 					//OTA
+					$otaInstallFile = $zip;
 					$resultOTA = "/mirror.php?base=" . $base . "&f=" . $device . "/" . $zip;
 					if(file_exists($realRootdir . $device . "/" .$zip . ".sha512sum")) {
 						$resultHashOTA = "/mirror.php?base=" . $base . "&f=" . $device . "/" . $zip . ".sha512sum";
@@ -86,6 +87,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					$recovery = str_replace(".zip", "-recovery.img", $zip);
 					$recoveryPath = $realRootdir . $device . "/" . $recovery;
 					if(strlen($recovery) > 36 && file_exists($recoveryPath)) {
+						$initialInstallFile = $recovery;
 						$resultRecovery = "/mirror.php?base=" . $base . "&f=" . $device . "/" . $recovery;
 						if(file_exists($recoveryPath . ".sha512sum")) {
 							$resultHashRecovery = "/mirror.php?base=" . $base . "&f=" . $device . "/" . $recovery . ".sha512sum";
@@ -97,6 +99,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					$fastboot = str_replace(".zip", "-fastboot.zip", $zip);
 					$fastbootPath = $realRootdir . $device . "/" . $fastboot;
 					if(strlen($fastboot) > 36 && file_exists($fastbootPath)) {
+						$initialInstallFile = $fastboot;
 						$resultFastboot = "/mirror.php?base=" . $base . "&f=" . $device . "/" . $fastboot;
 						if(file_exists($fastbootPath . ".sha512sum")) {
 							$resultHashFastboot = "/mirror.php?base=" . $base . "&f=" . $device . "/" . $fastboot . ".sha512sum";
@@ -180,7 +183,11 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					$downloads .= "<ul>";
 					$downloads .= "<li><a href=\"https://wiki.lineageos.org/devices/" . $trueName . "\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">Device Info</a></li>";
 					$downloads .= "<li style=\"color:#" . $resultStatusColor . ";\">Status: " . $resultStatusMessage . "</li>";
-					$downloads .= "<li>Install Method: " . $resultInstallMethod . "</li>";
+					if(file_exists($realRootdir . $device . "/install.html")) {
+						$downloads .= "<li>Install Method: <a href=\"/builds/LineageOS/" . $device . "/install.html\" target=\"_blank\">" . $resultInstallMethod . "</a></li>";
+					} else {
+						$downloads .= "<li>Install Method: <a href=\"/pages/bootloader\" target=\"_blank\">" . $resultInstallMethod . "</a></li>";
+					}
 					$downloads .= "<li>Relockable: " . $resultRelockable . "</li>";
 					$downloads .= "<li>Verified Boot: " . $resultVerifiedBoot . "</li>";
 					//if(isset($resultReleaseDate)) {
@@ -214,6 +221,11 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					$downloads .= $resultExtras;
 
 					$downloads .= "</div>";
+
+					//Generate the install steps
+					if(!$golden) {
+						writeInstallSteps($device, $realRootdir . $device . "/", trim($resultInstallMethod), isset($resultKeyAVB), isset($resultRecovery), isset($resultFastboot), (isset($resultCopyParts) && !isset($resultFirmwareIncluded)), $initialInstallFile, $otaInstallFile);
+					}
 					}
 
 					unset($resultOTA);
@@ -233,6 +245,8 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					unset($resultFirmwareIncluded);
 					unset($resultFriendlyName);
 					unset($resultFriendlyNameAlt);
+					unset($initialInstallFile);
+					unset($otaInstallFile);
 				}
 				unset($zip); unset($trueName);
 			}
@@ -241,6 +255,79 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 		unset($device);
 	}
 	return $downloads;
+}
+
+function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needsRecovery, $needsFastboot, $needsSync, $initialInstallFile, $otaInstallFile) {
+	if(str_starts_with($installMethod, "Fastboot")) {
+		$fileSteps = fopen($path . "install.html", "w") or die("Unable to open file!");
+		$steps = "<ol>\n";
+		$steps .= "<li>Backup your device.</li>\n";
+		$steps .= "<li>Follow the prerequisite steps <a href=\"/pages/bootloader#prereq\" target=\"_blank\">here</a></li>\n";
+		if($installMethod === "Fastboot (Google)") {
+			$steps .= "<li>Open the Phone app and type <code>*#*#2432546#*#*</code>, do not hit call</li>\n";
+			$steps .= "<li>Enable 'Allow OEM unlocking' under 'Developer options' in Settings if available</li>\n";
+		}
+		if($installMethod === "Fastboot (Fairphone)") {
+			$steps .= "<li>Follow the vendor-specific unlock steps <a href=\"https://support.fairphone.com/hc/en-us/articles/10492476238865\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">here</a></li>\n";
+		}
+		if($installMethod === "Fastboot (HTC)") {
+			$steps .= "<li>Follow the vendor-specific unlock steps <a href=\"https://www.htcdev.com/bootloader/\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">here</a></li>\n";
+		}
+		if($installMethod === "Fastboot (Lenovo)") {
+			$steps .= "<li>Follow the vendor-specific unlock steps <a href=\"https://www.zui.com/iunlock\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">here</a></li>\n";
+		}
+		if($installMethod === "Fastboot (Motorola)") {
+			$steps .= "<li>Follow the vendor-specific unlock steps <a href=\"https://motorola-global-portal.custhelp.com/app/standalone/bootloader/unlock-your-device-a\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">here</a></li>\n";
+		}
+		if($installMethod === "Fastboot (Sony)") {
+			$steps .= "<li>Follow the vendor-specific unlock steps <a href=\"https://developer.sonymobile.com/unlockbootloader/unlock-yourboot-loader/\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">here</a></li>\n";
+		}
+		if($installMethod === "Fastboot (Xiaomi)") {
+			$steps .= "<li>Follow the vendor-specific unlock steps <a href=\"https://global.account.xiaomi.com/pass/register\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">here</a></li>\n";
+		}
+		if($installMethod === "Fastboot (ASUS)") {
+			$steps .= "<li>Follow the vendor-specific unlock steps <a href=\"https://www.asus.com/support\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">here</a></li>\n";
+		}
+		if(file_exists($path . "/combo-bootloader")) {
+			$steps .= "<li>Reboot to the bootloader: " . file_get_contents($path . "/combo-bootloader") . "</li>\n";
+		} else {
+			$steps .= "<li>Reboot to the bootloader via key combination or <code>$ adb reboot bootloader</code></li>\n";
+		}
+		if($installMethod === "Fastboot (Google)" || $installMethod === "Fastboot") {
+			if(file_exists($path . "/command-unlock")) {
+				$steps .= "<li><code>$ " . file_get_contents($path . "/command-unlock") . "</code></li>\n";
+			} else {
+				$steps .= "<li><code>$ fastboot oem unlock</code> or <code>$ fastboot flashing unlock</code></li>\n";
+			}
+			$steps .= "<li>Reboot the device, then reboot back to bootloader</li>\n";
+		}
+		if($needsAVB) {
+			$steps .= "<li><code>$ fastboot erase avb_custom_key</code></li>\n";
+			$steps .= "<li><code>$ fastboot flash avb_custom_key avb_pkmd-" . $deviceName . ".bin</code></li>\n";
+			$steps .= "<li>Reboot to the bootloader</li>\n";
+		}
+		if($needsFastboot) {
+			$steps .= "<li><code>$ fastboot update " . $initialInstallFile . "</code></li>\n";
+		}
+		if($needsRecovery) {
+			$steps .= "<li><code>$ fastboot flash recovery " . $initialInstallFile . "</code></li>\n";
+		}
+		if(file_exists($path . "/combo-recovery")) {
+			$steps .= "<li>Reboot to the recovery: " . file_get_contents($path . "/combo-recovery") . "</li>\n";
+		} else {
+			$steps .= "<li>Reboot to recovery (use volume buttons to navigate if on or key combination if off)</li>\n";
+		}
+		if($needsSync) {
+			$steps .= "<li><code>$ adb sideload copy-partitions-" . $deviceName . ".zip</a></code></li>\n";
+		}
+		$steps .= "<li>Choose \"Apply update\", then \"Apply from ADB\", and <code>$ adb sideload " . $otaInstallFile . "</code></li>\n";
+		$steps .= "<li>While still in the recovery perform a factory reset</li>\n";
+		$steps .= "<li>Reboot into DivestOS. If it takes more than 10 minutes to boot something is wrong. Do not let it sit for more than 10 minutes!</li>\n";
+		$steps .= "<li>There are monthly updates. You MUST read the News page and backup your device before each update.</li>\n";
+		$steps .= "</ol>";
+		fwrite($fileSteps, $steps);
+		fclose($fileSteps);
+	}
 }
 
 function getStatus($status, $outdated) {

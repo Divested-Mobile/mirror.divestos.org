@@ -51,7 +51,7 @@ echo "2018-12-05" > amber/releasedate;
 
 echo "Google Nexus 6P" > angler/friendlyName;
 echo 7 > angler/status-15.1;
-echo -e "Fastboot\nReported Working\n1.0\nYes" > angler/bootloader_information;
+echo -e "Fastboot (Google)\nReported Working\n1.0\nYes" > angler/bootloader_information;
 echo "2015-09-29" > angler/releasedate;
 
 echo "Razer Phone 2" > aura/friendlyName;
@@ -94,8 +94,8 @@ echo "Google Pixel 3" > blueline/friendlyName;
 echo "Google Pixel 3 XL" > crosshatch/friendlyName;
 echo 1 > blueline/status-20.0;
 echo 1 > crosshatch/status-20.0;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > blueline/bootloader_information;
-echo -e "Fastboot\nReported Working\n2.0\nYes" > crosshatch/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > blueline/bootloader_information;
+echo -e "Fastboot (Google)\nReported Working\n2.0\nYes" > crosshatch/bootloader_information;
 echo "2018-10-18" > blueline/releasedate;
 echo "2018-10-18" > crosshatch/releasedate;
 
@@ -103,19 +103,19 @@ echo "Google Pixel 3a XL" > bonito/friendlyName;
 echo "Google Pixel 3a" > sargo/friendlyName;
 echo 1 > bonito/status-20.0;
 echo 1 > sargo/status-20.0;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > bonito/bootloader_information;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > sargo/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > bonito/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > sargo/bootloader_information;
 echo "2019-05-07" > bonito/releasedate;
 echo "2019-05-07" > sargo/releasedate;
 
 echo "Google Pixel 4a 5G" > bramble/friendlyName;
 echo 7 > bramble/status-20.0;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > bramble/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > bramble/bootloader_information;
 echo "2020-08-20" > bramble/releasedate;
 
 echo "Google Nexus 5X" > bullhead/friendlyName;
 echo 0 > bullhead/status-15.1;
-echo -e "Fastboot\nTested Working\n1.0" > bullhead/bootloader_information;
+echo -e "Fastboot (Google)\nTested Working\n1.0" > bullhead/bootloader_information;
 echo "2015-10-22" > bullhead/releasedate;
 
 echo "OnePlus 5" > cheeseburger/friendlyName;
@@ -142,8 +142,8 @@ echo "Pixel 4 XL" > coral/friendlyName;
 echo "Pixel 4" > flame/friendlyName;
 echo 1 > coral/status-20.0;
 echo 1 > flame/status-20.0;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > coral/bootloader_information;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > flame/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > coral/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > flame/bootloader_information;
 echo "2019-10-24" > coral/releasedate;
 echo "2019-10-24" > flame/releasedate;
 
@@ -196,7 +196,7 @@ echo "2019-05-01" > davinci/releasedate; #?
 
 echo "Google Pixel C" > dragon/friendlyName;
 echo 0 > dragon/status-15.1;
-echo -e "Fastboot\nYes, but will error\n1.0" > dragon/bootloader_information;
+echo -e "Fastboot (Google)\nYes, but will error\n1.0" > dragon/bootloader_information;
 echo "2015-12-08" > dragon/releasedate;
 
 echo "OnePlus 8" > instantnoodle/friendlyName;
@@ -248,8 +248,8 @@ echo "Google Nexus 9" > flounder/friendlyName;
 echo "Google Nexus 9 LTE" > flounder_lte/friendlyName;
 echo 0 > flounder/status-15.1;
 echo 4 > flounder_lte/status-15.1;
-echo -e "Fastboot\nYes, Might Brick\n1.0" > flounder/bootloader_information;
-echo -e "Fastboot\nYes, Might Brick\n1.0" > flounder_lte/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Might Brick\n1.0" > flounder/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Might Brick\n1.0" > flounder_lte/bootloader_information;
 
 echo "Fairphone 2" > fp2/friendlyName;
 echo 7 > fp2/status-18.1;
@@ -267,7 +267,7 @@ echo -e "Fastboot\nReported Working\n2.0\nYes" > fp4/bootloader_information;
 
 echo "Google Nexus Player" > fugu/friendlyName;
 echo 7 > fugu/status-15.1;
-echo -e "Fastboot\nYes, Untested\nNo\nYes" > fugu/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\nNo\nYes" > fugu/bootloader_information;
 
 echo "Moto Z" > griffin/friendlyName;
 echo 2 > griffin/status-18.1;
@@ -352,7 +352,7 @@ echo "2016-10-01" > us996/releasedate; #?
 
 echo "Zuk Z1" > ham/friendlyName;
 echo 4 > ham/status-16.0;
-echo -e "Fastboot\nUnknown\nNo" > ham/bootloader_information;
+echo -e "Fastboot (Lenovo)\nUnknown\nNo" > ham/bootloader_information;
 echo "2015-08-11" > ham/releasedate;
 
 echo "Google Nexus 5" > hammerhead/friendlyName;
@@ -523,8 +523,8 @@ echo "Google Pixel XL" > marlin/friendlyName;
 echo "Google Pixel" > sailfish/friendlyName;
 echo 7 > marlin/status-18.1;
 echo 0 > sailfish/status-18.1;
-echo -e "Fastboot\nReported Working\n1.0\nYes" > marlin/bootloader_information;
-echo -e "Fastboot\nTested Working\n1.0\nYes" > sailfish/bootloader_information;
+echo -e "Fastboot (Google)\nReported Working\n1.0\nYes" > marlin/bootloader_information;
+echo -e "Fastboot (Google)\nTested Working\n1.0\nYes" > sailfish/bootloader_information;
 
 echo "Essential PH-1" > mata/friendlyName;
 echo 0 > mata/status-19.1;
@@ -590,31 +590,31 @@ echo -e "Fastboot\nReported Working\n2.0\nYes" > pro1x/bootloader_information;
 
 echo "Google Pixel 5" > redfin/friendlyName;
 echo 7 > redfin/status-20.0;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > redfin/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > redfin/bootloader_information;
 
 echo "Google Pixel 5a" > barbet/friendlyName;
 echo 8 > barbet/status-20.0;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > barbet/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > barbet/bootloader_information;
 
 echo "Google Pixel 6" > oriole/friendlyName;
 echo 8 > oriole/status-20.0;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > oriole/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > oriole/bootloader_information;
 
 echo "Google Pixel 6 Pro" > raven/friendlyName;
 echo 8 > raven/status-20.0;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > raven/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > raven/bootloader_information;
 
 echo "Google Pixel 6a" > bluejay/friendlyName;
 echo 0 > bluejay/status-20.0;
-echo -e "Fastboot\nTested Working\n2.0\nYes" > bluejay/bootloader_information;
+echo -e "Fastboot (Google)\nTested Working\n2.0\nYes" > bluejay/bootloader_information;
 
 echo "Google Pixel 7" > panther/friendlyName;
 echo 8 > panther/status-20.0;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > panther/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > panther/bootloader_information;
 
 echo "Google Pixel 7 Pro" > cheetah/friendlyName;
 echo 8 > cheetah/status-20.0;
-echo -e "Fastboot\nYes, Untested\n2.0\nYes" > cheetah/bootloader_information;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > cheetah/bootloader_information;
 
 echo "Xiaomi Redmi 4/4X" > santoni/friendlyName;
 echo 8 > santoni/status-16.0;
@@ -653,7 +653,7 @@ echo -e "Heimdall\nNot Unlockable\nNo" > star2lte/bootloader_information;
 
 echo "Google Pixel 4a" > sunfish/friendlyName;
 echo 7 > sunfish/status-20.0;
-echo -e "Fastboot\nReported Working\n2.0\nYes" > sunfish/bootloader_information;
+echo -e "Fastboot (Google)\nReported Working\n2.0\nYes" > sunfish/bootloader_information;
 
 echo "Xiaomi Mi 9T Pro" > raphael/friendlyName;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > raphael/bootloader_information;
@@ -667,8 +667,8 @@ echo "Google Pixel 2 XL" > taimen/friendlyName;
 echo "Google Pixel 2" > walleye/friendlyName;
 echo 0 > taimen/status-20.0;
 echo 7 > walleye/status-20.0;
-echo -e "Fastboot\nTested Working\n2.0\nYes" > taimen/bootloader_information;
-echo -e "Fastboot\nReported Working\n2.0\nYes" > walleye/bootloader_information;
+echo -e "Fastboot (Google)\nTested Working\n2.0\nYes" > taimen/bootloader_information;
+echo -e "Fastboot (Google)\nReported Working\n2.0\nYes" > walleye/bootloader_information;
 
 echo "Amazon Kindle Fire HDX 8.9" > apollo/friendlyName;
 echo "Amazon Kindle Fire HDX 7" > thor/friendlyName;
@@ -699,7 +699,7 @@ echo -e "Fastboot (ASUS)\nNo\nNo" > z00t/bootloader_information;
 
 echo "ZUK Z2 Plus" > z2_plus/friendlyName;
 echo 4 > z2_plus/status-18.1;
-echo -e "Fastboot (ZUK)\nUnknown\n1.0" > z2_plus/bootloader_information;
+echo -e "Fastboot (Lenovo)\nUnknown\n1.0" > z2_plus/bootloader_information;
 
 echo "ASUS Zenfone 3" > zenfone3/friendlyName;
 echo 2 > zenfone3/status-16.0;
