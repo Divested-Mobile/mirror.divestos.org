@@ -273,6 +273,9 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 		if($installMethod === "Fastboot (HTC)") {
 			$steps .= "<li>Follow the vendor-specific unlock steps <a href=\"https://www.htcdev.com/bootloader/\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">here</a></li>\n";
 		}
+		if($installMethod === "Fastboot (LGE)") {
+			$steps .= "<li>Unfortunately LGE shutdown their unlock server and now unofficial unlock methods are required. Research and proceed with them at your own risk!</li>\n";
+		}
 		if($installMethod === "Fastboot (Lenovo)") {
 			$steps .= "<li>Follow the vendor-specific unlock steps <a href=\"https://www.zui.com/iunlock\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">here</a></li>\n";
 		}
@@ -291,7 +294,7 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 		if(file_exists($path . "/combo-bootloader")) {
 			$steps .= "<li>Reboot to the bootloader: " . file_get_contents($path . "/combo-bootloader") . "</li>\n";
 		} else {
-			$steps .= "<li>Reboot to the bootloader via key combination or <code>$ adb reboot bootloader</code></li>\n";
+			$steps .= "<li>Reboot to the bootloader via key combination</li>\n";
 		}
 		if($installMethod === "Fastboot (Google)" || $installMethod === "Fastboot") {
 			if(file_exists($path . "/command-unlock")) {
@@ -318,7 +321,7 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 			$steps .= "<li>Reboot to recovery (use volume buttons to navigate if on or key combination if off)</li>\n";
 		}
 		if($needsSync) {
-			$steps .= "<li><code>$ adb sideload copy-partitions-" . $deviceName . ".zip</a></code></li>\n";
+			$steps .= "<li><code>$ adb sideload copy-partitions-" . $deviceName . "-release.zip</a></code></li>\n";
 		}
 		$steps .= "<li>Choose \"Apply update\", then \"Apply from ADB\", and <code>$ adb sideload " . $otaInstallFile . "</code></li>\n";
 		$steps .= "<li>While still in the recovery perform a factory reset</li>\n";

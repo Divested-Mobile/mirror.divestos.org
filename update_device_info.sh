@@ -60,7 +60,7 @@ echo -e "Fastboot\nYes, Untested\n2.0\nYes" > aura/bootloader_information;
 
 echo "OnePlus Nord" > avicii/friendlyName;
 echo 7 > avicii/status-20.0;
-echo -e "Fastboot\nNo*\n2.0\n20.0 only" > avicii/bootloader_information;
+echo -e "Fastboot\nNo\n2.0\n20.0 only" > avicii/bootloader_information;
 echo "2020-08-04" > avicii/releasedate;
 
 echo "ZTE Axon 7" > axon7/friendlyName;
@@ -135,7 +135,7 @@ echo "2017-11-15" > cheryl/releasedate;
 echo "Moto X Pure 2015" > clark/friendlyName;
 echo 0 > clark/status-14.1;
 echo 0 > clark/status-17.1;
-echo -e "Fastboot (Motorola)\nNo*\nNo" > clark/bootloader_information;
+echo -e "Fastboot (Motorola)\nNo\nNo" > clark/bootloader_information;
 echo "2015-09-02" > clark/releasedate;
 
 echo "Pixel 4 XL" > coral/friendlyName;
@@ -207,17 +207,17 @@ echo 8 > instantnoodle/status-20.0;
 echo 8 > instantnoodlep/status-20.0;
 echo 8 > kebab/status-20.0;
 echo 8 > lemonades/status-20.0;
-echo -e "Fastboot\nNo*\n2.0\nYes" > instantnoodle/bootloader_information;
-echo -e "Fastboot\nNo*\n2.0\nYes" > instantnoodlep/bootloader_information;
-echo -e "Fastboot\nNo*\n2.0" > kebab/bootloader_information;
-echo -e "Fastboot\nNo*\n2.0" > lemonades/bootloader_information;
+echo -e "Fastboot\nNo\n2.0\nYes" > instantnoodle/bootloader_information;
+echo -e "Fastboot\nNo\n2.0\nYes" > instantnoodlep/bootloader_information;
+echo -e "Fastboot\nNo\n2.0" > kebab/bootloader_information;
+echo -e "Fastboot\nNo\n2.0" > lemonades/bootloader_information;
 
 echo "OnePlus 9" > lemonade/friendlyName;
 echo "OnePlus 9 Pro" > lemonadep/friendlyName;
 echo 7 > lemonade/status-20.0;
 echo 8 > lemonadep/status-20.0;
-echo -e "Fastboot\nNo*\n2.0\nYes" > lemonade/bootloader_information;
-echo -e "Fastboot\nNo*\n2.0\nYes" > lemonadep/bootloader_information;
+echo -e "Fastboot\nNo\n2.0\nYes" > lemonade/bootloader_information;
+echo -e "Fastboot\nNo\n2.0\nYes" > lemonadep/bootloader_information;
 
 echo "OnePlus 6" > enchilada/friendlyName;
 echo "OnePlus 6T" > fajita/friendlyName;
@@ -271,7 +271,7 @@ echo -e "Fastboot (Google)\nYes, Untested\nNo\nYes" > fugu/bootloader_informatio
 
 echo "Moto Z" > griffin/friendlyName;
 echo 2 > griffin/status-18.1;
-echo -e "Fastboot (Motorola)\nNo*\nNo" > griffin/bootloader_information;
+echo -e "Fastboot (Motorola)\nNo\nNo" > griffin/bootloader_information;
 echo "2016-09-01" > griffin/releasedate; #?
 
 echo "Google Nexus 7 [2012]" > grouper/friendlyName;
@@ -283,8 +283,8 @@ echo "OnePlus 7 Pro" > guacamole/friendlyName;
 echo "OnePlus 7" > guacamoleb/friendlyName;
 echo 7 > guacamole/status-20.0;
 echo 8 > guacamoleb/status-20.0;
-echo -e "Fastboot\nNo*\n2.0\nYes" > guacamole/bootloader_information;
-echo -e "Fastboot\nNo*\n2.0\nYes" > guacamoleb/bootloader_information;
+echo -e "Fastboot\nNo\n2.0\nYes" > guacamole/bootloader_information;
+echo -e "Fastboot\nNo\n2.0\nYes" > guacamoleb/bootloader_information;
 echo "2019-05-14" > guacamole/releasedate;
 echo "2019-05-14" > guacamoleb/releasedate;
 
@@ -292,8 +292,8 @@ echo "LG G4 TMO" > h811/friendlyName;
 echo "LG G4 INTL" > h815/friendlyName;
 echo 2 > h811/status-14.1;
 echo 2 > h815/status-14.1;
-echo -e "Fastboot (LGE)\nNo*\nNo" > h811/bootloader_information;
-echo -e "Fastboot (LGE)\nNo*\nNo" > h815/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > h811/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > h815/bootloader_information;
 echo "2015-04-29" > h815/releasedate;
 
 echo "LG G5 TMO" > h830/friendlyName;
@@ -305,9 +305,9 @@ echo 2 > rs988/status-18.1;
 echo 4 > h830/status-19.1;
 echo 4 > h850/status-19.1;
 echo 4 > rs988/status-19.1;
-echo -e "Fastboot (LGE)\nNo*\nNo" > h830/bootloader_information;
-echo -e "Fastboot (LGE)\nNo*\nNo" > h850/bootloader_information;
-echo -e "Fastboot (LGE)\nNo*\nNo" > rs988/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > h830/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > h850/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > rs988/bootloader_information;
 echo "2016-04-23" > h850/releasedate;
 echo "2016-04-23" > rs988/releasedate;
 
@@ -317,8 +317,8 @@ echo 1 > h870/status-15.1;
 echo 1 > us997/status-15.1;
 echo 4 > h870/status-19.1;
 echo 4 > us997/status-19.1;
-echo -e "Fastboot (LGE)\nNo*\nNo" > h870/bootloader_information;
-echo -e "Fastboot (LGE)\nNo*\nNo" > us997/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > h870/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > us997/bootloader_information;
 echo "2017-02-26" > h870/releasedate;
 echo "2017-02-26" > us997/releasedate;
 
@@ -340,12 +340,12 @@ echo 4 > h990/status-19.1;
 echo 4 > ls997/status-19.1;
 echo 4 > us996/status-19.1;
 echo 4 > vs995/status-19.1;
-echo -e "Exploit\nNot Unlockable\nNo" > h910/bootloader_information;
-echo -e "Exploit\nNot Unlockable\nNo" > h918/bootloader_information;
-echo -e "Exploit\nNot Unlockable\nNo" > h990/bootloader_information;
-echo -e "Exploit\nNot Unlockable\nNo" > ls997/bootloader_information;
-echo -e "Exploit\nNot Unlockable\nNo" > us996/bootloader_information;
-echo -e "Exploit\nNot Unlockable\nNo" > vs995/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > h910/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > h918/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > h990/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > ls997/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > us996/bootloader_information;
+echo -e "Fastboot (LGE)\nNo\nNo" > vs995/bootloader_information;
 echo "2016-10-01" > h910/releasedate; #?
 echo "2016-11-01" > h990/releasedate; #?
 echo "2016-10-01" > us996/releasedate; #?
@@ -363,7 +363,7 @@ echo "2013-10-31" > hammerhead/releasedate;
 
 echo "Moto G4 Play" > harpia/friendlyName;
 echo 7 > harpia/status-17.1;
-echo -e "Fastboot (Motorola)\nNo*\nNo" > harpia/bootloader_information;
+echo -e "Fastboot (Motorola)\nNo\nNo" > harpia/bootloader_information;
 echo "2016-05-17" > harpia/releasedate;
 
 echo "Samsung Galaxy S7" > herolte/friendlyName;
@@ -378,16 +378,16 @@ echo "HTC One M9 GSM" > himaul/friendlyName;
 echo "HTC One M9 VZW" > himawl/friendlyName;
 echo 8 > himaul/status-14.1;
 echo 4 > himawl/status-14.1;
-echo -e "Fastboot (HTC)\nNo*\nNo" > himaul/bootloader_information;
-echo -e "Fastboot (HTC)\nNo*\nNo" > himawl/bootloader_information;
+echo -e "Fastboot (HTC)\nNo\nNo" > himaul/bootloader_information;
+echo -e "Fastboot (HTC)\nNo\nNo" > himawl/bootloader_information;
 echo "2015-04-10" > himaul/releasedate;
 
 echo "OnePlus 7T Pro" > hotdog/friendlyName;
 echo "OnePlus 7T" > hotdogb/friendlyName;
 echo 7 > hotdog/status-20.0;
 echo 7 > hotdogb/status-20.0;
-echo -e "Fastboot\nNo*\n2.0\nYes" > hotdog/bootloader_information;
-echo -e "Fastboot\nNo*\n2.0\nYes" > hotdogb/bootloader_information;
+echo -e "Fastboot\nNo\n2.0\nYes" > hotdog/bootloader_information;
+echo -e "Fastboot\nNo\n2.0\nYes" > hotdogb/bootloader_information;
 echo "2019-10-17" > hotdog/releasedate;
 echo "2019-09-28" > hotdogb/releasedate;
 
@@ -492,14 +492,14 @@ echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > lmi/bootloader_information;
 
 echo "HTC One" > m7/friendlyName;
 echo 4 > m7/status-14.1;
-echo -e "Fastboot (HTC)\nNo*\nNo" > m7/bootloader_information;
+echo -e "Fastboot (HTC)\nNo\nNo" > m7/bootloader_information;
 
 echo "HTC One M8" > m8/friendlyName;
 echo "HTC One M8 DS" > m8d/friendlyName;
 echo 7 > m8/status-18.1;
 echo 4 > m8d/status-18.1;
-echo -e "Fastboot (HTC)\nNo*\nNo" > m8/bootloader_information;
-echo -e "Fastboot (HTC)\nNo*\nNo" > m8d/bootloader_information;
+echo -e "Fastboot (HTC)\nNo\nNo" > m8/bootloader_information;
+echo -e "Fastboot (HTC)\nNo\nNo" > m8d/bootloader_information;
 
 echo "Samsung Galaxy Nexus GSM" > maguro/friendlyName;
 echo "Samsung Galaxy Nexus VZW" > toro/friendlyName;
@@ -533,7 +533,7 @@ echo -e "Fastboot\nTested Working\n1.0\nYes" > mata/bootloader_information;
 
 echo "Moto G3 Turbo" > merlin/friendlyName;
 echo 4 > merlin/status-17.1;
-echo -e "Fastboot (Motorola)\nNo*\nNo" > merlin/bootloader_information;
+echo -e "Fastboot (Motorola)\nNo\nNo" > merlin/bootloader_information;
 
 echo "Samsung Galaxy Note 8.0 GSM" > n5100/friendlyName;
 echo "Samsung Galaxy Note 8.0 Wi-Fi" > n5110/friendlyName;
@@ -562,7 +562,7 @@ echo -e "Fastboot\nYes, test-keys only?\n1.0" > oneplus3/bootloader_information;
 
 echo "Moto G 2015" > osprey/friendlyName;
 echo 7 > osprey/status-17.1;
-echo -e "Fastboot (Motorola)\nNo*\nNo" > osprey/bootloader_information;
+echo -e "Fastboot (Motorola)\nNo\nNo" > osprey/bootloader_information;
 
 echo "Sony Xperia XA2" > pioneer/friendlyName;
 echo "Sony Xperia XA2 Plus" > voyager/friendlyName;
@@ -661,7 +661,7 @@ echo "2019-05-01" > raphael/releasedate; #?
 
 echo "Moto E 2015 LTE" > surnia/friendlyName;
 echo 7 > surnia/status-17.1;
-echo -e "Fastboot (Motorola)\nNo*\nNo" > surnia/bootloader_information;
+echo -e "Fastboot (Motorola)\nNo\nNo" > surnia/bootloader_information;
 
 echo "Google Pixel 2 XL" > taimen/friendlyName;
 echo "Google Pixel 2" > walleye/friendlyName;
@@ -687,7 +687,7 @@ echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > vayu/bootloader_information;
 
 echo "Moto X 2014" > victara/friendlyName;
 echo 7 > victara/status-18.1;
-echo -e "Fastboot (Motorola)\nNo*\nNo" > victara/bootloader_information;
+echo -e "Fastboot (Motorola)\nNo\nNo" > victara/bootloader_information;
 
 echo "Google Project Tango Tablet" > yellowstone/friendlyName;
 echo 2 > yellowstone/status-16.0;
