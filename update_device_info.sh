@@ -35,7 +35,6 @@ echo "2018-07-30" > aurora/releasedate;
 echo "2018-04-05" > xz2c/releasedate;
 
 echo "Xiaomi POCO F3 / Redmi K40 / Mi 11X" > alioth/friendlyName;
-echo 7 > alioth/status-19.1;
 echo 7 > alioth/status-20.0;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > alioth/bootloader_information;
 echo "2021-03-04" > alioth/releasedate;
@@ -133,7 +132,6 @@ echo -e "Fastboot\nYes, Untested\n1.0\nYes" > cheryl/bootloader_information;
 echo "2017-11-15" > cheryl/releasedate;
 
 echo "Moto X Pure 2015" > clark/friendlyName;
-echo 0 > clark/status-14.1;
 echo 0 > clark/status-17.1;
 echo -e "Fastboot (Motorola)\nNo\nNo" > clark/bootloader_information;
 echo "2015-09-02" > clark/releasedate;
@@ -229,18 +227,18 @@ echo "2018-05-02" > enchilada/releasedate;
 echo "2018-11-06" > fajita/releasedate;
 
 echo "Nextbit Robin" > ether/friendlyName;
-echo 8 > ether/status-15.1;
 echo 7 > ether/status-18.1;
 echo -e "Fastboot\nReported Working\nNo" > ether/bootloader_information;
 echo "2016-02-16" > ether/releasedate;
 
 echo "Google Nexus 7 LTE [2013]" > deb/friendlyName;
+echo "Google Nexus 7 LTE [2013] (repartitioned)" > debx/friendlyName;
 echo "Google Nexus 7 [2013]" > flo/friendlyName;
 echo "Google Nexus 7 [2013] (repartitioned)" > flox/friendlyName;
-echo 1 > deb/status-15.1;
-echo 0 > flo/status-15.1;
 echo 0 > flox/status-18.1;
+echo 4 > debx/status-18.1;
 echo -e "Fastboot\nYes, Untested\nNo" > deb/bootloader_information;
+echo -e "Fastboot\nYes, Untested\nNo" > debx/bootloader_information;
 echo -e "Fastboot\nTested Working\nNo\nYes" > flo/bootloader_information;
 echo -e "Fastboot\nTested Working\nNo" > flox/bootloader_information;
 
@@ -355,9 +353,8 @@ echo 4 > ham/status-16.0;
 echo -e "Fastboot (Lenovo)\nUnknown\nNo" > ham/bootloader_information;
 echo "2015-08-11" > ham/releasedate;
 
-echo "Google Nexus 5" > hammerhead/friendlyName;
-echo 0 > hammerhead/status-15.1;
-echo 5 > hammerhead/status-16.0;
+echo "Google Nexus 5 (repartitioned)" > hammerhead/friendlyName;
+echo 0 > hammerhead/status-18.1;
 echo -e "Fastboot\nTested Working\nNo\nYes" > hammerhead/bootloader_information;
 echo "2013-10-31" > hammerhead/releasedate;
 
@@ -621,7 +618,7 @@ echo 8 > santoni/status-16.0;
 echo -e "Fastboot (Xiaomi)\nLikely not possible\nNo" > santoni/bootloader_information;
 
 echo "Xiaomi Redmi 3S/3X/4 (IN)/4X/[Note 5A/Y1 - Prime]" > mi8937/friendlyName;
-echo 2 > mi8937/status-20.0;
+echo 7 > mi8937/status-20.0;
 echo -e "Fastboot (Xiaomi)\nLikely not possible\nNo" > mi8937/bootloader_information;
 
 echo "Galaxy S4 Mini INTL (3G)" > serrano3gxx/friendlyName;
@@ -637,7 +634,6 @@ echo 8 > serranodsdd/status-18.1;
 echo -e "Heimdall\nNot Unlockable\nNo" > serranodsdd/bootloader_information;
 
 echo "Google Nexus 6" > shamu/friendlyName;
-echo 4 > shamu/status-15.1;
 echo 7 > shamu/status-18.1;
 echo -e "Fastboot\nReported Working\n1.0" > shamu/bootloader_information;
 
