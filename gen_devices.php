@@ -406,7 +406,7 @@ function error() {
 						</div>
 						<hr>
 						<h2 class="centero" id="eighteen">18.1 / 11.0 / Red Velvet Cake<a href="#eighteen">¶</a></h2>
-						<p class="centero"><mark class="secondary">In-Place upgrades to 18.1 on the following devices devices require a wipe due to their legacy keystore support being removed:</mark><br><mark class="secondary">bacon, clark, crackling, d852, d855, flox, fp2, m8, mako, shamu, victara</mark></p>
+						<p class="centero"><mark class="secondary">In-Place upgrades to 18.1 on the following devices devices require a wipe due to their legacy keystore support being removed:</mark><br><mark class="secondary">bacon, clark, crackling, d852, d855, flox, fp2, hammerhead, m8, mako, shamu, victara</mark></p>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("18.1"); ?>
 						</div>

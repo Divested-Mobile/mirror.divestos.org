@@ -569,7 +569,7 @@ echo "Sony Xperia 10 Plus" > mermaid/friendlyName;
 echo 8 > pioneer/status-19.1;
 echo 8 > voyager/status-19.1;
 echo 8 > discovery/status-19.1;
-echo 8 > kirin/status-19.1;
+echo 7 > kirin/status-19.1;
 echo 8 > mermaid/status-19.1;
 echo -e "Fastboot (Sony)\nUnknown\nNo" > pioneer/bootloader_information;
 echo -e "Fastboot (Sony)\nUnknown\nNo" > voyager/bootloader_information;
