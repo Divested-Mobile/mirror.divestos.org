@@ -78,7 +78,7 @@ echo "Xiaomi Mi 8 Pro" > equuleus/friendlyName;
 echo "Xiaomi Mi MIX 2S" > polaris/friendlyName;
 echo "Xiaomi Mi 8 Explorer Edition" > ursa/friendlyName;
 echo 5 > beryllium/status-20.0;
-echo 2 > dipper/status-20.0;
+echo 5 > dipper/status-20.0;
 echo 2 > equuleus/status-20.0;
 echo 5 > polaris/status-20.0;
 echo 2 > ursa/status-20.0;
