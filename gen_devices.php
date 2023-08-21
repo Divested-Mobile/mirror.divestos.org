@@ -313,6 +313,9 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 		if($needsFastboot) {
 			$steps .= "<li><code>$ fastboot update " . $initialInstallFile . "</code></li>\n";
 		}
+		if($deviceName === "mi439" || $deviceName === "mi8917" || $deviceName === "mi8937") {
+			$steps .= "<li><code>$ fastboot wipe-super super_empty.img</code></li>\n";
+		}
 		if($needsRecovery) {
 			$steps .= "<li><code>$ fastboot flash recovery " . $initialInstallFile . "</code></li>\n";
 		}
