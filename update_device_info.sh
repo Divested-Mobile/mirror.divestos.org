@@ -18,6 +18,7 @@
 
 mkdir -p a3xelte a52q a5xelte a5y17lte a6020 a72q a7xelte a7y17lte addison ahannah akari akatsuki albus alioth amber angler anne apollo apollon armani athene aura aurora avicii axolotl axon7 bacon barbet bardock bardockpro beckham berkeley berlin beryllium beyond0lte beyond1lte beyond2lte beyondlte beyondx bluejay blueline bonito bramble bullhead cancro capricorn castor castor_windy cedric cepheus chagalllte chagallwifi channel chaozu charlotte che10 cheeseburger cheetah chef cherry cheryl chiron clark condor coral crackling crosshatch crownlte d1 d2att d2s d2spr d2tmo d2vzw d2x d800 d801 d802 d803 d850 d851 d852 d855 davinci deadpool deb dipper discovery dogo dragon dre drg dubai dumpling enchilada equuleus espresso espresso3g espressowifi ether evert f1f f400 fajita falcon figo find7 flame flo flounder flounder_lte flox foster foster_tab fp2 fp3 fp4 fugu g2m gauguin gemini ghost ginkgo gohan griffin grouper grus gta4xl gta4xlwifi gtelwifiue gtesqltespr gts210ltexx gts210vewifi gts210wifi gts28vewifi gts4lv gts4lvwifi guacamole guacamoleb h811 h815 h830 h850 h870 h910 h918 h990 ha3g ham hammerhead hannah harpia hayabusa heart hero2lte herolte hiae himaul himawl hlte hltechn hltekor hltetmo hotdog hotdogb huashan hydrogen i001d i01wd i9100 i9300 i9305 ido instantnoodle instantnoodlep ivy j7elte jactivelte jag3gds jagnm jalebi jasmine jasmine_sprout jason jellypro jflteatt jfltespr jfltevzw jfltexx jfvelte k3gxx kane karin karin_windy kccat6 kebab kenzo kiev kingdom kipper kirin kiwi klimtwifi klte klteactivexx klteaio kltechn kltechnduo klteduos kltedv kltekdi kltekor kltesprsports ks01lte ks01ltexx kugo kuntao lake land lavender lemonade lemonadep lemonades lentislte lettuce libra lithium lmi ls990 ls997 lt02ltespr lt03lte lux m20lte m216 m7 m7vzw m8 m8d maguro mako manta marlin maserati mata mdarcy mdarcy_tab merlin mermaid mi8937 miatol miatoll mido mint mondrianwifi monet montana ms013g mt2 n1awifi n2awifi n3 n5100 n5110 n5120 n7100 nairo nash natrium nex nicki nio nx512j nx563j obiwan ocean odin onclite oneplus2 oneplus3 onyx oriole osprey otus p024 paella panther payton pdx203 peach peregrine piccolo pioneer pl2 platina pme polaris pollux pollux_windy porg porg_tab pro1 pro1x pstar pyxis quill quill_tab r5 r7plus r7sf racer raphael raven redfin rhannah river rmx1801 rmx1851 roth rs988 s2 s3ve3gds s3ve3gjv s3ve3gxx s5neolte sagit sailfish sake santoni sargo scorpio seed serrano3gxx serranodsdd serranoltexx shamu shieldtablet sirius spyder star2lte starlte sumire sunfish surnia surya suzu suzuran t0lte t6 t6vzw taimen taoshan targa tenshi thea thor tilapia tissot titan tomato toro toroplus tp1803 troika tsubasa tulip twolip umts_spyder ursa us996 us997 v1awifi v400 v410 v480 v500 v521 vayu vegetalte victara violet voyager vs985 vs995 w5 w7 wade walleye wayne whyred wt88047 x00p x00td x01ad x01bd x2 xmsirius xt897 xz2c yellowstone ytx703f ytx703l yuga z008 z00a z00d z00l z00t z01r z2_plus z3 z3c zangya zangyapro zenfone3 zerofltexx zeroltexx zippo zl1;
 
+
 echo "Sony Xperia XZ2" > akari/friendlyName;
 echo "Sony Xperia XZ2 Premium" > aurora/friendlyName;
 echo "Sony Xperia XZ2 Compact" > xz2c/friendlyName;
@@ -40,7 +41,7 @@ echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > alioth/bootloader_information;
 echo "2021-03-04" > alioth/releasedate;
 
 echo "Xiaomi Mi 10T / Mi 10T Pro / Redmi K30S Ultra" > apollon/friendlyName;
-echo 8 > apollon/status-19.1;
+echo 7 > apollon/status-19.1;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > apollon/bootloader_information;
 
 echo "Yandex Phone" > amber/friendlyName;
@@ -91,8 +92,8 @@ echo "2018-08-01" > beryllium/releasedate; #?
 
 echo "Google Pixel 3" > blueline/friendlyName;
 echo "Google Pixel 3 XL" > crosshatch/friendlyName;
-echo 1 > blueline/status-20.0;
-echo 1 > crosshatch/status-20.0;
+echo 2 > blueline/status-20.0;
+echo 2 > crosshatch/status-20.0;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > blueline/bootloader_information;
 echo -e "Fastboot (Google)\nReported Working\n2.0\nYes" > crosshatch/bootloader_information;
 echo "2018-10-18" > blueline/releasedate;
@@ -100,8 +101,8 @@ echo "2018-10-18" > crosshatch/releasedate;
 
 echo "Google Pixel 3a XL" > bonito/friendlyName;
 echo "Google Pixel 3a" > sargo/friendlyName;
-echo 1 > bonito/status-20.0;
-echo 1 > sargo/status-20.0;
+echo 7 > bonito/status-20.0;
+echo 8 > sargo/status-20.0;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > bonito/bootloader_information;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > sargo/bootloader_information;
 echo "2019-05-07" > bonito/releasedate;
@@ -138,8 +139,8 @@ echo "2015-09-02" > clark/releasedate;
 
 echo "Pixel 4 XL" > coral/friendlyName;
 echo "Pixel 4" > flame/friendlyName;
-echo 1 > coral/status-20.0;
-echo 1 > flame/status-20.0;
+echo 4 > coral/status-20.0;
+echo 4 > flame/status-20.0;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > coral/bootloader_information;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > flame/bootloader_information;
 echo "2019-10-24" > coral/releasedate;
@@ -311,9 +312,7 @@ echo "2016-04-23" > rs988/releasedate;
 
 echo "LG G6 INTL" > h870/friendlyName;
 echo "LG G6 US" > us997/friendlyName;
-echo 1 > h870/status-15.1;
-echo 1 > us997/status-15.1;
-echo 4 > h870/status-19.1;
+echo 8 > h870/status-19.1;
 echo 4 > us997/status-19.1;
 echo -e "Fastboot (LGE)\nNo\nNo" > h870/bootloader_information;
 echo -e "Fastboot (LGE)\nNo\nNo" > us997/bootloader_information;
@@ -407,7 +406,7 @@ echo "Samsung Galaxy S3 SPR" > d2spr/friendlyName;
 echo "Samsung Galaxy S3 TMO" > d2tmo/friendlyName;
 echo "Samsung Galaxy S3 VZW" > d2vzw/friendlyName;
 echo 8 > d2att/status-14.1;
-echo 4 > d2spr/status-14.1;
+echo 8 > d2spr/status-14.1;
 echo 4 > d2tmo/status-14.1;
 echo 4 > d2vzw/status-14.1;
 echo -e "Heimdall\nNot Unlockable\nNo" > d2att/bootloader_information;
