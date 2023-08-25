@@ -42,6 +42,7 @@ echo "2021-03-04" > alioth/releasedate;
 
 echo "Xiaomi Mi 10T / Mi 10T Pro / Redmi K30S Ultra" > apollon/friendlyName;
 echo 7 > apollon/status-19.1;
+echo 7 > apollon/status-20.0;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > apollon/bootloader_information;
 
 echo "Yandex Phone" > amber/friendlyName;
@@ -92,8 +93,8 @@ echo "2018-08-01" > beryllium/releasedate; #?
 
 echo "Google Pixel 3" > blueline/friendlyName;
 echo "Google Pixel 3 XL" > crosshatch/friendlyName;
-echo 2 > blueline/status-20.0;
-echo 2 > crosshatch/status-20.0;
+echo 7 > blueline/status-20.0;
+echo 8 > crosshatch/status-20.0;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > blueline/bootloader_information;
 echo -e "Fastboot (Google)\nReported Working\n2.0\nYes" > crosshatch/bootloader_information;
 echo "2018-10-18" > blueline/releasedate;
@@ -101,10 +102,10 @@ echo "2018-10-18" > crosshatch/releasedate;
 
 echo "Google Pixel 3a XL" > bonito/friendlyName;
 echo "Google Pixel 3a" > sargo/friendlyName;
-echo 7 > bonito/status-20.0;
-echo 8 > sargo/status-20.0;
+echo 8 > bonito/status-20.0;
+echo 7 > sargo/status-20.0;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > bonito/bootloader_information;
-echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > sargo/bootloader_information;
+echo -e "Fastboot (Google)\nReported Working\n2.0\nYes" > sargo/bootloader_information;
 echo "2019-05-07" > bonito/releasedate;
 echo "2019-05-07" > sargo/releasedate;
 
@@ -190,6 +191,7 @@ echo "2014-05-28" > d855/releasedate;
 
 echo "Xiaomi Redmi K20 / Mi 9T" > davinci/friendlyName;
 echo 7 > davinci/status-17.1;
+echo 2 > davinci/status-20.0;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > davinci/bootloader_information;
 echo "2019-05-01" > davinci/releasedate; #?
 
@@ -694,6 +696,7 @@ echo -e "Fastboot (ASUS)\nNo\nNo" > z00t/bootloader_information;
 
 echo "ZUK Z2 Plus" > z2_plus/friendlyName;
 echo 4 > z2_plus/status-18.1;
+echo 2 > z2_plus/status-20.0;
 echo -e "Fastboot (Lenovo)\nUnknown\n1.0" > z2_plus/bootloader_information;
 
 echo "ASUS Zenfone 3" > zenfone3/friendlyName;
