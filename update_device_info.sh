@@ -622,6 +622,10 @@ echo "Xiaomi Redmi 3S/3X/4 (IN)/4X/[Note 5A/Y1 - Prime]" > mi8937/friendlyName;
 echo 7 > mi8937/status-20.0;
 echo -e "Fastboot (Xiaomi)\nLikely not possible\nNo" > mi8937/bootloader_information;
 
+echo "Xiaomi Redmi 4A/5A/5A Lite/Y1 Lite" > mi8917/friendlyName;
+echo 8 > mi8917/status-20.0;
+echo -e "Fastboot (Xiaomi)\nLikely not possible\nNo" > mi8917/bootloader_information;
+
 echo "Galaxy S4 Mini INTL (3G)" > serrano3gxx/friendlyName;
 echo 8 > serrano3gxx/status-18.1;
 echo -e "Heimdall\nNot Unlockable\nNo" > serrano3gxx/bootloader_information;
