@@ -323,11 +323,12 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 			$steps .= "<li><code>$ fastboot flash avb_custom_key avb_pkmd-" . $deviceName . ".bin</code></li>\n";
 			$steps .= "<li>Reboot to the bootloader</li>\n";
 		}
-		if($needsFastboot) {
-			$steps .= "<li><code>$ fastboot update " . $initialInstallFile . "</code></li>\n";
-		}
 		if(file_exists($path . "/super_empty-" . $deviceName . ".img")) {
 			$steps .= "<li><code>$ fastboot wipe-super super_empty-" . $deviceName . ".img</code></li>\n";
+			$steps .= "<li>Reboot to the bootloader</li>\n";
+		}
+		if($needsFastboot) {
+			$steps .= "<li><code>$ fastboot update " . $initialInstallFile . "</code></li>\n";
 		}
 		if($needsRecovery) {
 			$steps .= "<li><code>$ fastboot flash recovery " . $initialInstallFile . "</code></li>\n";
