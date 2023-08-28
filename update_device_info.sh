@@ -140,8 +140,8 @@ echo "2015-09-02" > clark/releasedate;
 
 echo "Pixel 4 XL" > coral/friendlyName;
 echo "Pixel 4" > flame/friendlyName;
-echo 7 > coral/status-20.0;
-echo 8 > flame/status-20.0;
+echo 8 > coral/status-20.0;
+echo 7 > flame/status-20.0;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > coral/bootloader_information;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > flame/bootloader_information;
 echo "2019-10-24" > coral/releasedate;

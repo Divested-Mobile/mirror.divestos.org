@@ -123,6 +123,14 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					}
 					unset($copyParts); unset($copyPartsPath);
 
+					//SUPER
+					$superImg = "super_empty-" . $device . ".img";
+					$superImgPath = $realRootdir . $device . "/" . $superImg;
+					if(file_exists($superImgPath)) {
+						$resultSuperImg = "/mirror.php?base=" . $base . "&f=" . $device . "/" . $superImg;
+					}
+					unset($superImg); unset($superImgPath);
+
 					//STATUS
 					$latestFileTime = filemtime($realRootdir . $device . "/" .$zip);
 					$outdated = !(($latestFileTime >= $lastSecRelease) && (($curTime - $latestFileTime) <= 3456000));
@@ -208,7 +216,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					$resultExtras = "";
 					if(isset($resultKeyAVB)) {
 						if(strlen($resultExtras) == 0) { $resultExtras .= "<br>"; }
-						$resultExtras .= "<a href=\"" . $resultKeyAVB . "\" download class=\"button inverse small\"><strong>AVB Key</strong></a>";
+						$resultExtras .= "<a href=\"" . $resultKeyAVB . "\" download class=\"button inverse small\">AVB Key</a>";
 					}
 					if(isset($resultCopyParts)) {
 						if(strlen($resultExtras) == 0) { $resultExtras .= "<br>"; }
@@ -218,6 +226,10 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 						}
 						$resultExtras .= "<a href=\"" . $resultCopyParts . "\" download class=\"button inverse small\">" . $btnSyncTxt . "</a>";
 						unset($btnSyncTxt);
+					}
+					if(isset($resultSuperImg)) {
+						if(strlen($resultExtras) == 0) { $resultExtras .= "<br>"; }
+						$resultExtras .= "<a href=\"" . $resultSuperImg . "\" download class=\"button inverse small\">Super Image</a>";
 					}
 					$downloads .= $resultExtras;
 
@@ -237,6 +249,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					unset($resultHashFastboot);
 					unset($resultKeyAVB);
 					unset($resultCopyParts);
+					unset($resultSuperImg);
 					unset($resultStatusColor);
 					unset($resultStatusMessage);
 					unset($resultInstallMethod);
@@ -313,8 +326,8 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 		if($needsFastboot) {
 			$steps .= "<li><code>$ fastboot update " . $initialInstallFile . "</code></li>\n";
 		}
-		if($deviceName === "mi439" || $deviceName === "mi8917" || $deviceName === "mi8937") {
-			$steps .= "<li><code>$ fastboot wipe-super super_empty.img</code></li>\n";
+		if(file_exists($path . "/super_empty-" . $deviceName . ".img")) {
+			$steps .= "<li><code>$ fastboot wipe-super super_empty-" . $deviceName . ".img</code></li>\n";
 		}
 		if($needsRecovery) {
 			$steps .= "<li><code>$ fastboot flash recovery " . $initialInstallFile . "</code></li>\n";
