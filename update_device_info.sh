@@ -121,7 +121,7 @@ echo "2015-10-22" > bullhead/releasedate;
 
 echo "OnePlus 5" > cheeseburger/friendlyName;
 echo "OnePlus 5T" > dumpling/friendlyName;
-echo 7 > cheeseburger/status-20.0;
+echo 0 > cheeseburger/status-20.0;
 echo 7 > dumpling/status-20.0;
 echo -e "Fastboot\nTested Working\n1.0" > cheeseburger/bootloader_information;
 echo -e "Fastboot\nReported Working\n1.0" > dumpling/bootloader_information;
@@ -137,6 +137,10 @@ echo "Moto X Pure 2015" > clark/friendlyName;
 echo 0 > clark/status-17.1;
 echo -e "Fastboot (Motorola)\nNo\nNo" > clark/bootloader_information;
 echo "2015-09-02" > clark/releasedate;
+
+echo "Moto G4/G4 Plus" > athene/friendlyName;
+echo 1 > athene/status-14.1;
+echo -e "Fastboot (Motorola)\nNo\nNo" > athene/bootloader_information;
 
 echo "Pixel 4 XL" > coral/friendlyName;
 echo "Pixel 4" > flame/friendlyName;
@@ -591,7 +595,7 @@ echo 7 > redfin/status-20.0;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > redfin/bootloader_information;
 
 echo "Google Pixel 5a" > barbet/friendlyName;
-echo 8 > barbet/status-20.0;
+echo 7 > barbet/status-20.0;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > barbet/bootloader_information;
 
 echo "Google Pixel 6" > oriole/friendlyName;
