@@ -61,7 +61,7 @@ echo -e "Fastboot\nYes, Untested\n2.0\nYes" > aura/bootloader_information;
 
 echo "OnePlus Nord" > avicii/friendlyName;
 echo 7 > avicii/status-20.0;
-echo -e "Fastboot\nNo\n2.0\n20.0 only" > avicii/bootloader_information;
+echo -e "Fastboot\nNo\n2.0\nYes" > avicii/bootloader_information;
 echo "2020-08-04" > avicii/releasedate;
 
 echo "ZTE Axon 7" > axon7/friendlyName;
@@ -145,9 +145,9 @@ echo -e "Fastboot (Motorola)\nNo\nNo" > athene/bootloader_information;
 echo "Pixel 4 XL" > coral/friendlyName;
 echo "Pixel 4" > flame/friendlyName;
 echo 8 > coral/status-20.0;
-echo 7 > flame/status-20.0;
+echo 0 > flame/status-20.0;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > coral/bootloader_information;
-echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > flame/bootloader_information;
+echo -e "Fastboot (Google)\nTested Working\n2.0\nYes" > flame/bootloader_information;
 echo "2019-10-24" > coral/releasedate;
 echo "2019-10-24" > flame/releasedate;
 
@@ -596,7 +596,7 @@ echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > redfin/bootloader_informa
 
 echo "Google Pixel 5a" > barbet/friendlyName;
 echo 7 > barbet/status-20.0;
-echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > barbet/bootloader_information;
+echo -e "Fastboot (Google)\nReported Working\n2.0\nYes" > barbet/bootloader_information;
 
 echo "Google Pixel 6" > oriole/friendlyName;
 echo 8 > oriole/status-20.0;
