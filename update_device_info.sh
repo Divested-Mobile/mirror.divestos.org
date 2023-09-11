@@ -139,7 +139,7 @@ echo -e "Fastboot (Motorola)\nNo\nNo" > clark/bootloader_information;
 echo "2015-09-02" > clark/releasedate;
 
 echo "Moto G4/G4 Plus" > athene/friendlyName;
-echo 1 > athene/status-14.1;
+echo 5 > athene/status-14.1;
 echo -e "Fastboot (Motorola)\nNo\nNo" > athene/bootloader_information;
 
 echo "Pixel 4 XL" > coral/friendlyName;

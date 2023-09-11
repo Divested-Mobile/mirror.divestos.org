@@ -339,7 +339,7 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 			$steps .= "<li>Reboot to recovery (use volume buttons to navigate if on or key combination if off)</li>\n";
 		}
 		if($needsSync) {
-			$steps .= "<li><code>$ adb sideload copy-partitions-" . $deviceName . "-release.zip</a></code></li>\n";
+			$steps .= "<li>Choose \"Apply update\", then \"Apply from ADB\", and <code>$ adb sideload copy-partitions-" . $deviceName . "-release.zip</code></li>\n";
 		}
 		$steps .= "<li>Choose \"Apply update\", then \"Apply from ADB\", and <code>$ adb sideload " . $otaInstallFile . "</code></li>\n";
 		$steps .= "<li>While still in the recovery perform a factory reset</li>\n";
