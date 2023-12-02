@@ -14,20 +14,52 @@
 //You should have received a copy of the GNU Affero General Public License
 //along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-if(!defined('STDIN')) {
-	exit();
-}
-
 include "mirrorutils/security.php";
 include "mirrorutils/utils.php";
 ob_start("minifyWhitespace");
 
-$baseReal = $argv[1];
-$goldenReal = $argv[2];
+//Credit (CC BY-SA 3.0): https://stackoverflow.com/a/2916189
+function humanTiming($time) {
+	$time = time() - $time; // to get the time since that moment
+	$time = ($time < 1) ? 1 : $time;
+	$tokens = array (
+		//31536000 => 'year',
+		//2592000 => 'month',
+		//604800 => 'week',
+		86400 => 'day',
+		3600 => 'hour',
+		60 => 'minute',
+		1 => 'second'
+	);
+
+	foreach ($tokens as $unit => $text) {
+		if ($time < $unit) continue;
+		$numberOfUnits = floor($time / $unit);
+		return $numberOfUnits . ' ' . $text . (($numberOfUnits>1) ? 's' : '');
+	}
+}
+
+function getRedis() {
+	if(isset($GLOBALS['redisSingleton'])) {
+		return $GLOBALS['redisSingleton'];
+	}
+	if(extension_loaded("redis")) {
+		$GLOBALS['redisSingleton'] = new Redis();
+		$GLOBALS['redisSingleton']->connect('127.0.0.1');
+		return $GLOBALS['redisSingleton'];
+	}
+}
+
+function closeRedis() {
+	if(isset($GLOBALS['redisSingleton']) && extension_loaded("redis")) {
+		$GLOBALS['redisSingleton']->close();
+		unset($GLOBALS['redisSingleton']);
+	}
+}
 
 function getDownloads($version) {
-	$base = $GLOBALS['baseReal'];
-	$golden = ($GLOBALS['goldenReal'] === "true");
+	$base = "LineageOS";
+	$golden = (noHTML($_GET["golden"]) === "true");
 	if(is_null($base) || strlen($base) == 0 || !(substr_count($base, '/') == 0)) {
 		error();
 		return;
@@ -46,7 +78,22 @@ function getDownloads($version) {
 		return;
 	}
 
-	print(getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden));
+	print(getCachedDevices($base, $rootdir, $realRootdir, $devices, $version, $golden));
+}
+
+function getCachedDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) {
+	if(extension_loaded("redis")) {
+		$result = "";
+		$cacheKey = "DivestOS+devices.php+base:" . $base . "+version:" . $version;
+		if($golden) { $cacheKey .= "+golden"; }
+		if(($result = getRedis()->get($cacheKey)) == false) {
+			$result = getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden);
+			getRedis()->setEx($cacheKey, 3600, $result); //1 hour
+		}
+		return $result;
+	} else {
+		return getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden);
+	}
 }
 
 function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) {
@@ -133,6 +180,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 
 					//STATUS
 					$latestFileTime = filemtime($realRootdir . $device . "/" .$zip);
+					$resultLastUpdated = humanTiming($latestFileTime);
 					$outdated = !(($latestFileTime >= $lastSecRelease) && (($curTime - $latestFileTime) <= 3456000));
 					$statusFileGeneric = $realRootdir . $device . "/status";
 					$statusFileVersioned = $statusFileGeneric . "-" . $version;
@@ -179,6 +227,15 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					}
 					unset($friendlyNamePath);
 
+					//UPDATER CHECKS
+					if(extension_loaded("redis")) {
+						$updateCounter = getRedis()->get("Counter-DivestOS+updater.php+base:" . $base . "+device:" . $device);
+						if($updateCounter > 0) {
+							$resultUpdaterChecks = "<li>Updater checks past " . humanTiming(getRedis()->get("DivestOS+updater.php+uptime")) . ": " . $updateCounter . "</li>";
+						}
+						unset($updateCounter);
+					}
+
 					//OUTPUT THE ROW/CARD
 					if (!$golden ||
 						($golden && (
@@ -205,6 +262,8 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					if(isset($resultFirmwareIncluded)) {
 						$downloads .= "<li>Firmware Included: " . $resultFirmwareIncluded . "</li>";
 					}
+					$downloads .= "<li>Last updated: " . $resultLastUpdated . "</li>";
+					$downloads .= $resultUpdaterChecks;
 					$downloads .= "</ul><hr>";
 					$downloads .= "<a href=\"" . $resultOTA . "\" download class=\"button primary\">Download</a><a href=\"" . $resultHashOTA . "\" download class=\"button inverse small\">512sum</a>";
 					if(isset($resultRecovery)) {
@@ -261,6 +320,8 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					unset($resultFriendlyNameAlt);
 					unset($initialInstallFile);
 					unset($otaInstallFile);
+					unset($resultLastUpdated);
+					unset($resultUpdaterChecks);
 				}
 				unset($zip); unset($trueName);
 			}
@@ -452,4 +513,5 @@ function error() {
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("11.0"); ?>
 						</div>
+						<?php closeRedis(); ?>
 					</div>

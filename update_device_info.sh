@@ -482,7 +482,7 @@ echo "Xiaomi Redmi Note 6 Pro" > twolip/friendlyName;
 echo "Xiaomi Mi 6X" > wayne/friendlyName;
 echo "Xiaomi Redmi Note 5 Pro" > whyred/friendlyName;
 echo 7 > lavender/status-18.1;
-echo 7 > jasmine_sprout/status-18.1;
+echo 1 > jasmine_sprout/status-18.1;
 echo 8 > platina/status-18.1;
 echo 8 > twolip/status-18.1;
 echo 8 > wayne/status-18.1;
