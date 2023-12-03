@@ -59,14 +59,17 @@ function getCachedDeviceJson($rootdir, $rootdirInc, $base, $device, $inc) {
 		$uptimeKey = "DivestOS+updater.php+uptime";
 		if(!empty($inc)) {
 			$redis->incr("Counter-" . $cacheKey);
-			$currentYearMonth = date("Ym");
-			$pastMonth = (date("m") - 1);
-			$pastMonthMatcher = false;
-			if($pastMonth > 0) {
-				$pastMonthMatcher = str_starts_with($inc, "engemy" . date("Y") . $pastMonth);
-			}
-			if(str_starts_with($inc, "engemy" . $currentYearMonth) || $pastMonthMatcher) {
-				$redis->incr("Updated-" . $currentYearMonth . "-" . $cacheKey);
+			if (str_starts_with($inc, "engemy") || str_starts_with($inc, "engtad")) {
+				$incDate = substr($inc, 6);
+				$currentYearMonth = date("Ym");
+				$pastMonth = (date("m") - 1);
+				$pastMonthMatcher = false;
+				if($pastMonth > 0) {
+					$pastMonthMatcher = str_starts_with($incDate, date("Y") . $pastMonth);
+				}
+				if(str_starts_with($incDate, $currentYearMonth) || $pastMonthMatcher) {
+					$redis->incr("Updated-" . $currentYearMonth . "-" . $cacheKey);
+				}
 			}
 			$cacheKey .= "+inc:" . $inc;
 		}
