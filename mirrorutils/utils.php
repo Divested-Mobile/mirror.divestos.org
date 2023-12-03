@@ -88,18 +88,6 @@ function containsArr($haystack, $needles) {
 	return false;
 }
 
-//Credit (CC BY-SA 3.0): https://stackoverflow.com/a/10473026
-function startsWith($haystack, $needle) {
-    // search backwards starting from haystack length characters from the end
-    return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
-}
-
-//Credit (CC BY-SA 3.0): https://stackoverflow.com/a/10473026
-function endsWith($haystack, $needle) {
-    // search forward starting from end minus needle length characters
-    return $needle === "" || strpos($haystack, $needle, strlen($haystack) - strlen($needle)) !== FALSE;
-}
-
 //Credit (CC BY-SA 3.0): https://stackoverflow.com/a/6225706
 function minifyWhitespace($buffer) {
 	$search = array(

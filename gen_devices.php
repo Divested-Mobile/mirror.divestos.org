@@ -100,6 +100,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 	$downloads = "";
 	$lastSecRelease = 1567728000; //The timestamp of when LineageOS merged the latest Android security bulletin patches, XXX: MUST BE MANUALLY UPDATED
 	$curTime = time(); //Used to check if builds are older than 40 days as a fallback if the above isn't updated
+	$currentYearMonth = date("Ym");
 	foreach ($devices as $device) {
 		if(strlen($device) >= 2 && $device != '..') {
 			$files = scandir($realRootdir . $device, 1);
@@ -107,9 +108,9 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 				$zip = "";
 				//Identify an existing image matching the device and version
 				foreach ($files as $file) {
-					if($file != "status" && $file != "friendlyName" && $file != "incrementals" && !contains($file, "md5sum") && !contains($file, "sha512sum") && strlen($file) > 30 && !startsWith($file, ".") && endsWith($file, ".zip") && !contains($file, "fastboot") && !contains($file, "recovery")) {
+					if($file != "status" && $file != "friendlyName" && $file != "incrementals" && !contains($file, "md5sum") && !contains($file, "sha512sum") && strlen($file) > 30 && !str_starts_with($file, ".") && str_ends_with($file, ".zip") && !contains($file, "fastboot") && !contains($file, "recovery")) {
 						$imageSplit = explode("-", $file);
-						if(startsWith(strtolower($imageSplit[4]), $device) && ($imageSplit[1] == $version)) {
+						if(str_starts_with(strtolower($imageSplit[4]), $device) && ($imageSplit[1] == $version)) {
 							if(strlen($file) > 30) {
 								$zip = $file;
 								$trueName = explode(".", $imageSplit[4])[0];
@@ -232,8 +233,13 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 						$updateCounter = getRedis()->get("Counter-DivestOS+updater.php+base:" . $base . "+device:" . $device);
 						if($updateCounter > 0) {
 							$resultUpdaterChecks = "<li>Updater checks past " . humanTiming(getRedis()->get("DivestOS+updater.php+uptime")) . ": " . $updateCounter . "</li>";
+							$updateCurrentCounter = getRedis()->get("Updated-" . $currentYearMonth . "-" . "DivestOS+updater.php+base:" . $base . "+device:" . $device);
+							if($updateCurrentCounter > 0) {
+								$resultPercentUpToDate = "<li>Updated users: " . round(((100/$updateCounter) * $updateCurrentCounter)) . "%</li>";
+							}
 						}
 						unset($updateCounter);
+						unset($updateCurrentCounter);
 					}
 
 					//OUTPUT THE ROW/CARD
@@ -264,6 +270,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					}
 					$downloads .= "<li>Last updated: " . $resultLastUpdated . "</li>";
 					$downloads .= $resultUpdaterChecks;
+					$downloads .= $resultPercentUpToDate;
 					$downloads .= "</ul><hr>";
 					$downloads .= "<a href=\"" . $resultOTA . "\" download class=\"button primary\">Download</a><a href=\"" . $resultHashOTA . "\" download class=\"button inverse small\">512sum</a>";
 					if(isset($resultRecovery)) {
@@ -316,12 +323,13 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 					unset($resultVerifiedBoot);
 					unset($resultReleaseDate);
 					unset($resultFirmwareIncluded);
+					unset($resultLastUpdated);
+					unset($resultUpdaterChecks);
+					unset($resultPercentUpToDate);
 					unset($resultFriendlyName);
 					unset($resultFriendlyNameAlt);
 					unset($initialInstallFile);
 					unset($otaInstallFile);
-					unset($resultLastUpdated);
-					unset($resultUpdaterChecks);
 				}
 				unset($zip); unset($trueName);
 			}
@@ -329,6 +337,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 		}
 		unset($device);
 	}
+	unset($currentYearMonth);
 	return $downloads;
 }
 

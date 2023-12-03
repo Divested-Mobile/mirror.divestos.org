@@ -59,6 +59,15 @@ function getCachedDeviceJson($rootdir, $rootdirInc, $base, $device, $inc) {
 		$uptimeKey = "DivestOS+updater.php+uptime";
 		if(!empty($inc)) {
 			$redis->incr("Counter-" . $cacheKey);
+			$currentYearMonth = date("Ym");
+			$pastMonth = (date("m") - 1);
+			$pastMonthMatcher = false;
+			if($pastMonth > 0) {
+				$pastMonthMatcher = str_starts_with($inc, "engemy" . date("Y") . $pastMonth);
+			}
+			if(str_starts_with($inc, "engemy" . $currentYearMonth) || $pastMonthMatcher) {
+				$redis->incr("Updated-" . $currentYearMonth . "-" . $cacheKey);
+			}
 			$cacheKey .= "+inc:" . $inc;
 		}
 		if(($redis->get($uptimeKey)) == false) {
@@ -83,7 +92,7 @@ function getDeviceJson($rootdir, $rootdirInc, $base, $device, $inc) {
 		$imagesInc = scandir($rootdirInc, 1);
 		foreach($imagesInc as $imageInc) {
 			$imageSplit = explode("-", $imageInc);
-			if(startsWith($imageSplit[5], $inc)) {
+			if(str_starts_with($imageSplit[5], $inc)) {
 				$fullJson .= getImageJson($rootdirInc, $base, $device, $imageInc);
 			}
 		}
@@ -99,10 +108,10 @@ function getDeviceJson($rootdir, $rootdirInc, $base, $device, $inc) {
 }
 
 function getImageJson($rootdir, $base, $device, $image) {
-	if(!contains($image, "md5sum") && !contains($image, "sha512sum") && strlen($image) > 30 && !startsWith($image, ".") && endsWith($image, ".zip") && !contains($image, "fastboot") && !contains($image, "recovery")) {
+	if(!contains($image, "md5sum") && !contains($image, "sha512sum") && strlen($image) > 30 && !str_starts_with($image, ".") && str_ends_with($image, ".zip") && !contains($image, "fastboot") && !contains($image, "recovery")) {
 		$imageSplit = explode("-", $image); //name-version-date-buildtype-device-[previnc].zip
 		unset($json);
-		if(startsWith(strtolower($imageSplit[4]), $device)) {
+		if(str_starts_with(strtolower($imageSplit[4]), $device)) {
 			$json = "";
 			$json .= "\n\t\t{";
 			$json .= "\n\t\t\t\"filename\": \"" . $image . "\",";
