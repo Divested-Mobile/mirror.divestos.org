@@ -236,6 +236,8 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 							$updateCurrentCounter = getRedis()->get("Updated-" . $currentYearMonth . "-" . "DivestOS+updater.php+base:" . $base . "+device:" . $device);
 							if($updateCurrentCounter > 0) {
 								$resultPercentUpToDate = "<li>Updated users: " . round(((100/$updateCounter) * $updateCurrentCounter)) . "%</li>";
+							} else if ($version != "14.1" && $version != "15.1") {
+								$resultPercentUpToDate = "<li>Updated users: 0%</li>";
 							}
 						}
 						unset($updateCounter);
