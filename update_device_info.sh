@@ -102,7 +102,7 @@ echo "2018-10-18" > crosshatch/releasedate;
 
 echo "Google Pixel 3a XL" > bonito/friendlyName;
 echo "Google Pixel 3a" > sargo/friendlyName;
-echo 8 > bonito/status-20.0;
+echo 7 > bonito/status-20.0;
 echo 7 > sargo/status-20.0;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > bonito/bootloader_information;
 echo -e "Fastboot (Google)\nReported Working\n2.0\nYes" > sargo/bootloader_information;

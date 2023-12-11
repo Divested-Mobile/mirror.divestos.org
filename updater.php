@@ -62,12 +62,8 @@ function getCachedDeviceJson($rootdir, $rootdirInc, $base, $device, $inc) {
 			if (str_starts_with($inc, "engemy") || str_starts_with($inc, "engtad")) {
 				$incDate = substr($inc, 6);
 				$currentYearMonth = date("Ym");
-				$pastMonth = (date("m") - 1);
-				$pastMonthMatcher = false;
-				if($pastMonth > 0) {
-					$pastMonthMatcher = str_starts_with($incDate, date("Y") . $pastMonth);
-				}
-				if(str_starts_with($incDate, $currentYearMonth) || $pastMonthMatcher) {
+				$pastYearMonth = date("Ym", strtotime("first day of last month"));
+				if(str_starts_with($incDate, $currentYearMonth) || str_starts_with($incDate, $pastYearMonth)) {
 					$redis->incr("Updated-" . $currentYearMonth . "-" . $cacheKey);
 				}
 			}
