@@ -233,7 +233,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 						$updateCounter = getRedis()->get("Counter-DivestOS+updater.php+base:" . $base . "+device:" . $device);
 						if($updateCounter > 0) {
 							$resultUpdaterChecks = "<li>Updater checks past " . humanTiming(getRedis()->get("DivestOS+updater.php+uptime")) . ": " . $updateCounter . "</li>";
-							$updateCurrentCounter = getRedis()->get("Updated-" . $currentYearMonth . "-" . "DivestOS+updater.php+base:" . $base . "+device:" . $device);
+							$updateCurrentCounter = getRedis()->get("Updated-DivestOS+updater.php+base:" . $base . "+device:" . $device);
 							if($updateCurrentCounter > 0) {
 								$resultPercentUpToDate = "<li>Updated users: " . round(((100/$updateCounter) * $updateCurrentCounter)) . "%</li>";
 							} else if ($version != "14.1" && $version != "15.1") {
@@ -399,7 +399,11 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 			$steps .= "<li><code>$ fastboot wipe-super super_empty-" . $deviceName . ".img</code></li>\n";
 			$steps .= "<li>Reboot to the bootloader</li>\n";
 		}
-		if($needsFastboot) {
+		if($deviceName === "lavender") {
+			$steps .= "<li>Do NOT use <code>fastboot update</code> on this device, it has been reported to brick</li>\n";
+			$steps .= "<li>Extract the recovery.img from " . $initialInstallFile . "</li>\n";
+			$steps .= "<li><code>$ fastboot flash recovery recovery.img</code></li>\n";
+                } else if($needsFastboot) {
 			$steps .= "<li><code>$ fastboot update " . $initialInstallFile . "</code></li>\n";
 		}
 		if($needsRecovery) {

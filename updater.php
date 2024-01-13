@@ -64,7 +64,7 @@ function getCachedDeviceJson($rootdir, $rootdirInc, $base, $device, $inc) {
 				$currentYearMonth = date("Ym");
 				$pastYearMonth = date("Ym", strtotime("first day of last month"));
 				if(str_starts_with($incDate, $currentYearMonth) || str_starts_with($incDate, $pastYearMonth)) {
-					$redis->incr("Updated-" . $currentYearMonth . "-" . $cacheKey);
+					$redis->incr("Updated-" . $cacheKey);
 				}
 			}
 			$cacheKey .= "+inc:" . $inc;
