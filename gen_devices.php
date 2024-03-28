@@ -399,7 +399,7 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 			$steps .= "<li><code>$ fastboot wipe-super super_empty-" . $deviceName . ".img</code></li>\n";
 			$steps .= "<li>Reboot to the bootloader</li>\n";
 		}
-		if($deviceName === "lavender") {
+		if($deviceName === "lavender" || $deviceName === "jasmine_sprout") {
 			$steps .= "<li>Do NOT use <code>fastboot update</code> on this device, it has been reported to brick</li>\n";
 			$steps .= "<li>Extract the recovery.img from " . $initialInstallFile . "</li>\n";
 			$steps .= "<li><code>$ fastboot flash recovery recovery.img</code></li>\n";
@@ -498,8 +498,7 @@ function error() {
 							<?php getDownloads("19.1"); ?>
 						</div>
 						<hr>
-						<h2 class="centero" id="eighteen">18.1 / 11.0 / Red Velvet Cake<a href="#eighteen">¶</a></h2>
-						<p class="centero"><mark class="secondary">In-Place upgrades to 18.1 on the following devices devices require a wipe due to their legacy keystore support being removed:</mark><br><mark class="secondary">bacon, clark, crackling, d852, d855, flox, fp2, hammerhead, m8, mako, shamu, victara</mark></p>
+						<h2 class="centero" id="eighteen">18.1 / 11.0 / Red Velvet Cake / END OF LIFE<a href="#eighteen">¶</a></h2>
 						<div class="row" style="text-align: center;">
 							<?php getDownloads("18.1"); ?>
 						</div>
