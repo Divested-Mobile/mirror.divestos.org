@@ -199,7 +199,7 @@ echo 1 > davinci/status-20.0;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > davinci/bootloader_information;
 echo "2019-05-01" > davinci/releasedate; #?
 
-echo "Google Pixel C" > dragon/friendlyName;
+echo "Google Pixel C (tablet)" > dragon/friendlyName;
 echo 0 > dragon/status-15.1;
 echo -e "Fastboot (Google)\nYes, but will error\n1.0" > dragon/bootloader_information;
 echo "2015-12-08" > dragon/releasedate;
@@ -238,10 +238,10 @@ echo 7 > ether/status-18.1;
 echo -e "Fastboot\nReported Working\nNo" > ether/bootloader_information;
 echo "2016-02-16" > ether/releasedate;
 
-echo "Google Nexus 7 LTE [2013]" > deb/friendlyName;
-echo "Google Nexus 7 LTE [2013] (repartitioned)" > debx/friendlyName;
-echo "Google Nexus 7 [2013]" > flo/friendlyName;
-echo "Google Nexus 7 [2013] (repartitioned)" > flox/friendlyName;
+echo "Google Nexus 7 LTE [2013] (tablet)" > deb/friendlyName;
+echo "Google Nexus 7 LTE [2013] (repartitioned) (tablet)" > debx/friendlyName;
+echo "Google Nexus 7 [2013] (tablet)" > flo/friendlyName;
+echo "Google Nexus 7 [2013] (repartitioned) (tablet)" > flox/friendlyName;
 echo 0 > flox/status-18.1;
 echo 4 > debx/status-18.1;
 echo -e "Fastboot\nYes, Untested\nNo" > deb/bootloader_information;
@@ -249,8 +249,8 @@ echo -e "Fastboot\nYes, Untested\nNo" > debx/bootloader_information;
 echo -e "Fastboot\nTested Working\nNo\nYes" > flo/bootloader_information;
 echo -e "Fastboot\nTested Working\nNo" > flox/bootloader_information;
 
-echo "Google Nexus 9" > flounder/friendlyName;
-echo "Google Nexus 9 LTE" > flounder_lte/friendlyName;
+echo "Google Nexus 9 (tablet)" > flounder/friendlyName;
+echo "Google Nexus 9 LTE (tablet)" > flounder_lte/friendlyName;
 echo 0 > flounder/status-15.1;
 echo 4 > flounder_lte/status-15.1;
 echo -e "Fastboot (Google)\nYes, Might Brick\n1.0" > flounder/bootloader_information;
@@ -279,7 +279,7 @@ echo 2 > griffin/status-18.1;
 echo -e "Fastboot (Motorola)\nNo\nNo" > griffin/bootloader_information;
 echo "2016-09-01" > griffin/releasedate; #?
 
-echo "Google Nexus 7 [2012]" > grouper/friendlyName;
+echo "Google Nexus 7 [2012] (tablet)" > grouper/friendlyName;
 echo 0 > grouper/status-14.1;
 echo -e "Fastboot\nWill Brick\nNo" > grouper/bootloader_information;
 echo -e "Fastboot\nWill Brick\nNo" > tilapia/bootloader_information;
@@ -548,9 +548,9 @@ echo "Moto G3 Turbo" > merlin/friendlyName;
 echo 4 > merlin/status-17.1;
 echo -e "Fastboot (Motorola)\nNo\nNo" > merlin/bootloader_information;
 
-echo "Samsung Galaxy Note 8.0 GSM" > n5100/friendlyName;
-echo "Samsung Galaxy Note 8.0 Wi-Fi" > n5110/friendlyName;
-echo "Samsung Galaxy Note 8.0 LTE" > n5120/friendlyName;
+echo "Samsung Galaxy Note 8.0 GSM (tablet)" > n5100/friendlyName;
+echo "Samsung Galaxy Note 8.0 Wi-Fi (tablet)" > n5110/friendlyName;
+echo "Samsung Galaxy Note 8.0 LTE (tablet)" > n5120/friendlyName;
 echo 2 > n5100/status-14.1;
 echo 2 > n5110/status-14.1;
 echo 2 > n5120/status-14.1;
@@ -691,14 +691,14 @@ echo 7 > walleye/status-20.0;
 echo -e "Fastboot (Google)\nTested Working\n2.0\nYes" > taimen/bootloader_information;
 echo -e "Fastboot (Google)\nReported Working\n2.0\nYes" > walleye/bootloader_information;
 
-echo "Amazon Kindle Fire HDX 8.9" > apollo/friendlyName;
-echo "Amazon Kindle Fire HDX 7" > thor/friendlyName;
+echo "Amazon Kindle Fire HDX 8.9 (tablet)" > apollo/friendlyName;
+echo "Amazon Kindle Fire HDX 7 (tablet)" > thor/friendlyName;
 echo 7 > apollo/status-14.1;
 echo 0 > thor/status-14.1;
 echo -e "Bulk Mode\nNot Unlockable\nNo" > apollo/bootloader_information;
 echo -e "Bulk Mode\nNot Unlockable\nNo" > thor/bootloader_information;
 
-echo "Samsung Galaxy Note Pro 12.2" > v1awifi/friendlyName;
+echo "Samsung Galaxy Note Pro 12.2 (tablet)" > v1awifi/friendlyName;
 echo 8 > v1awifi/status-14.1;
 echo -e "Heimdall\nNot Unlockable\nNo" > v1awifi/bootloader_information;
 
@@ -711,7 +711,7 @@ echo "Moto X 2014" > victara/friendlyName;
 echo 7 > victara/status-18.1;
 echo -e "Fastboot (Motorola)\nNo\nNo" > victara/bootloader_information;
 
-echo "Google Project Tango Tablet" > yellowstone/friendlyName;
+echo "Google Project Tango (tablet)" > yellowstone/friendlyName;
 echo 2 > yellowstone/status-16.0;
 echo -e "Fastboot\nYes, Untested\nNo" > yellowstone/bootloader_information;
 
