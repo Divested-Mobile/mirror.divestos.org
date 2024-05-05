@@ -634,6 +634,14 @@ echo "Google Pixel 7 Pro" > cheetah/friendlyName;
 echo 8 > cheetah/status-20.0;
 echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > cheetah/bootloader_information;
 
+echo "Google Pixel 7a" > lynx/friendlyName;
+echo 8 > lynx/status-20.0;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > lynx/bootloader_information;
+
+echo "Google Pixel Tablet" > tangorpro/friendlyName;
+echo 8 > tangorpro/status-20.0;
+echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > tangorpro/bootloader_information;
+
 echo "Xiaomi Redmi 4/4X" > santoni/friendlyName;
 echo 8 > santoni/status-16.0;
 echo -e "Fastboot (Xiaomi)\nLikely not possible\nNo" > santoni/bootloader_information;
