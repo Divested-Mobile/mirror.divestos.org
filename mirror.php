@@ -41,7 +41,9 @@ if(!isLikelyBot()) {
 }
 
 function getMirror() {
-	if(in_array($_SERVER['SERVER_NAME'], $GLOBALS['SBNR_DOMAINS_ONIONS_ONLY'])) {
+	if(in_array($_SERVER['SERVER_NAME'], $GLOBALS['SBNR_DOMAINS_CLOUDFLARE_ONLY'])) {
+		return $GLOBALS['SBNR_MIRRORS_CLOUDFLARE'][array_rand($GLOBALS['SBNR_MIRRORS_CLOUDFLARE'])];
+	} else if(in_array($_SERVER['SERVER_NAME'], $GLOBALS['SBNR_DOMAINS_ONIONS_ONLY'])) {
 		return $GLOBALS['SBNR_MIRRORS_ONIONS'][array_rand($GLOBALS['SBNR_MIRRORS_ONIONS'])];
 	} else {
 		if(false /*isset($_SERVER['MM_LATITUDE']) && isset($_SERVER['MM_LONGITUDE'])*/) {
