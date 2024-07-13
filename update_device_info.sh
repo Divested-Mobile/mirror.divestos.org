@@ -486,7 +486,7 @@ echo 1 > jasmine_sprout/status-18.1;
 echo 8 > platina/status-18.1;
 echo 8 > twolip/status-18.1;
 echo 8 > wayne/status-18.1;
-echo 8 > whyred/status-18.1;
+echo 7 > whyred/status-18.1;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > lavender/bootloader_information;
 echo -e "Fastboot (Xiaomi)\nReported Working\n2.0" > jasmine_sprout/bootloader_information;
 echo -e "Fastboot (Xiaomi)\nWill Brick\n2.0" > platina/bootloader_information;
@@ -615,12 +615,12 @@ echo 7 > barbet/status-20.0;
 echo -e "Fastboot (Google)\nReported Working\n2.0\nYes" > barbet/bootloader_information;
 
 echo "Google Pixel 6" > oriole/friendlyName;
-echo 8 > oriole/status-20.0;
-echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > oriole/bootloader_information;
+echo 0 > oriole/status-20.0;
+echo -e "Fastboot (Google)\nTested Working\n2.0\nYes" > oriole/bootloader_information;
 
 echo "Google Pixel 6 Pro" > raven/friendlyName;
-echo 8 > raven/status-20.0;
-echo -e "Fastboot (Google)\nYes, Untested\n2.0\nYes" > raven/bootloader_information;
+echo 0 > raven/status-20.0;
+echo -e "Fastboot (Google)\nTested Working\n2.0\nYes" > raven/bootloader_information;
 
 echo "Google Pixel 6a" > bluejay/friendlyName;
 echo 0 > bluejay/status-20.0;
