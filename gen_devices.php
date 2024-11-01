@@ -1,5 +1,5 @@
 <?php
-//Copyright (c) 2017-2022 Divested Computing Group
+//Copyright (c) 2017-2024 Divested Computing Group
 //
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU Affero General Public License as published by
@@ -305,7 +305,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 
 					//Generate the install steps
 					if(!$golden) {
-						writeInstallSteps($device, $realRootdir . $device . "/", trim($resultInstallMethod), isset($resultKeyAVB), isset($resultRecovery), isset($resultFastboot), (isset($resultCopyParts) && !isset($resultFirmwareIncluded)), $initialInstallFile, $otaInstallFile);
+						writeInstallSteps($device, $realRootdir . $device . "/", trim($resultInstallMethod), isset($resultKeyAVB), isset($resultRecovery), isset($resultFastboot), (isset($resultCopyParts) && !isset($resultFirmwareIncluded)), (isset($resultCopyParts) && isset($resultFirmwareIncluded)), $initialInstallFile, $otaInstallFile, $resultRelockable);
 					}
 					}
 
@@ -343,7 +343,7 @@ function getDevices($base, $rootdir, $realRootdir, $devices, $version, $golden) 
 	return $downloads;
 }
 
-function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needsRecovery, $needsFastboot, $needsSync, $initialInstallFile, $otaInstallFile) {
+function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needsRecovery, $needsFastboot, $needsSync, $needDoubleSideload, $initialInstallFile, $otaInstallFile, $relockStatus) {
 	if(str_starts_with($installMethod, "Fastboot")) {
 		$fileSteps = fopen($path . "install.html", "w") or die("Unable to open file!");
 		$steps = "<ol>\n";
@@ -390,7 +390,7 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 			}
 			$steps .= "<li>Reboot the device, then reboot back to bootloader</li>\n";
 		}
-		if($needsAVB) {
+		if($needsAVB && ($relockStatus === "Tested Working\n" || $relockStatus === "Reported Working\n" || $relockStatus === "Yes, Untested\n" || $relockStatus === "Unknown\n")) {
 			$steps .= "<li><code>$ fastboot erase avb_custom_key</code></li>\n";
 			$steps .= "<li><code>$ fastboot flash avb_custom_key avb_pkmd-" . $deviceName . ".bin</code></li>\n";
 			$steps .= "<li>Reboot to the bootloader</li>\n";
@@ -419,6 +419,10 @@ function writeInstallSteps($deviceName, $path, $installMethod, $needsAVB, $needs
 		}
 		$steps .= "<li>Choose \"Apply update\", then \"Apply from ADB\", and <code>$ adb sideload " . $otaInstallFile . "</code></li>\n";
 		$steps .= "<li>While still in the recovery perform a factory reset</li>\n";
+		if($needDoubleSideload) {
+			$steps .= "<li>Reboot into the recovery again</li>\n";
+			$steps .= "<li>Choose \"Apply update\", then \"Apply from ADB\", and <code>$ adb sideload " . $otaInstallFile . "</code></li>\n";
+		}
 		$steps .= "<li>Reboot into DivestOS. If it takes more than 10 minutes to boot then something is wrong. Do not let it sit for more than 10 minutes!</li>\n";
 		$steps .= "<li>There are monthly updates. You MUST read the News page and backup your device before each update.</li>\n";
 		$steps .= "</ol>";

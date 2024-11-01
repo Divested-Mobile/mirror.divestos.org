@@ -1,5 +1,5 @@
 #!/bin/bash
-#Copyright (c) 2021-2022 Divested Computing Group
+#Copyright (c) 2021-2024 Divested Computing Group
 #
 #This program is free software: you can redistribute it and/or modify
 #it under the terms of the GNU Affero General Public License as published by
@@ -27,10 +27,10 @@ echo 8 > akari/status-20.0;
 echo 8 > aurora/status-20.0;
 echo 7 > xz2c/status-20.0;
 echo 8 > akatsuki/status-20.0;
-echo -e "Fastboot (Sony)\nUnknown\n2.0" > akari/bootloader_information;
-echo -e "Fastboot (Sony)\nUnknown\n2.0" > akatsuki/bootloader_information;
-echo -e "Fastboot (Sony)\nUnknown\n2.0" > aurora/bootloader_information;
-echo -e "Fastboot (Sony)\nUnknown\n2.0" > xz2c/bootloader_information;
+echo -e "Fastboot (Sony)\nNo\n2.0" > akari/bootloader_information;
+echo -e "Fastboot (Sony)\nNo\n2.0" > akatsuki/bootloader_information;
+echo -e "Fastboot (Sony)\nNo\n2.0" > aurora/bootloader_information;
+echo -e "Fastboot (Sony)\nNo\n2.0" > xz2c/bootloader_information;
 echo "2018-04-05" > akari/releasedate;
 echo "2018-07-30" > aurora/releasedate;
 echo "2018-04-05" > xz2c/releasedate;
